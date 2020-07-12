@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
+  grid-template-areas: "h h", "n c";
 }
 
 .app-wrapper__header {
@@ -12,6 +13,6 @@
   grid-area: n;
 }
 
-.app-wrapper__footer {
-  grid-area: f;
+.app-wrapper__main-content {
+  grid-area: c;
 }

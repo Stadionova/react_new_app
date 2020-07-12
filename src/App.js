@@ -6,7 +6,7 @@ const App = () => {
     <div className="app-wrapper">
       <header className="app-wrapper__header"></header>
       <nav className="app-wrapper__navigation"></nav>
-      <footer className="app-wrapper__footer"></footer>
+      <main className="app-wrapper__main-content"></main>
     </div>
   );
 };
