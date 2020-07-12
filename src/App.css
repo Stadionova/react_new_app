@@ -1,3 +1,17 @@
 .app-wrapper {
   display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+}
+
+.app-wrapper__header {
+  grid-area: h;
+}
+
+.app-wrapper__navigation {
+  grid-area: n;
+}
+
+.app-wrapper__footer {
+  grid-area: f;
 }
