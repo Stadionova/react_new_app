@@ -5,6 +5,7 @@ const App = () => {
   return (
     <div className="App">
         function return simple HTML
+        <li>tag LI</li>
     </div>
   );
 }
