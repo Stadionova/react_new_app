@@ -1,11 +1,14 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
+      <header></header>
+      <nav></nav>
+      <footer></footer>
     </div>
   );
-}
+};
 
 export default App;
