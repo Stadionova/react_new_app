@@ -2,17 +2,20 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-template-areas: "h h", "n c";
+  grid-template-areas: "h h" "n c";
 }
 
 .app-wrapper__header {
   grid-area: h;
+  background-color: aqua;
 }
 
 .app-wrapper__navigation {
   grid-area: n;
+  background-color: cadetblue;
 }
 
 .app-wrapper__main-content {
   grid-area: c;
+  background-color: darkgoldenrod;
 }
