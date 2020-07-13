@@ -10,6 +10,11 @@
   background-color: aqua;
 }
 
+.app-wrapper__header img {
+  width: 55px;
+  height: 55px;
+}
+
 .app-wrapper__navigation {
   grid-area: n;
   background-color: cadetblue;
