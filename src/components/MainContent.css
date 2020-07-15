@@ -1,0 +1,15 @@
+.app-wrapper__main-content {
+    grid-area: c;
+    background-color: darkgoldenrod;
+}
+
+.app-wrapper__main-content-headlinePhoto img {
+    width: 80%;
+    height: 400px;
+    padding: 20px 100px;
+}
+
+.app-wrapper__main-content-avatarAndDesc,
+.app-wrapper__main-content-posts {
+    padding: 20px 100px;
+}

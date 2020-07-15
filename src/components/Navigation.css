@@ -1,0 +1,4 @@
+.app-wrapper__navigation {
+    grid-area: n;
+    background-color: cadetblue;
+}
