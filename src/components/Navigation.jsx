@@ -4,19 +4,19 @@ import React from "react";
 const Navigation = () => {
     return (
         <nav className="app-wrapper__navigation">
-            <div>
+            <div className="app-wrapper__navigation-item">
                 <a>Profile</a>
             </div>
-            <div>
+            <div className="app-wrapper__navigation-item">
                 <a>Messages</a>
             </div>
-            <div>
+            <div className="app-wrapper__navigation-item">
                 <a>News</a>
             </div>
-            <div>
+            <div className="app-wrapper__navigation-item">
                 <a>Music</a>
             </div>
-            <div>
+            <div className="app-wrapper__navigation-item">
                 <a>Settings</a>
             </div>
         </nav>
