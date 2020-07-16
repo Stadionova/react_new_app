@@ -1,0 +1,15 @@
+.content {
+    grid-area: c;
+    background-color: darkgoldenrod;
+}
+
+.headlinePhoto img {
+    width: 80%;
+    height: 400px;
+    padding: 20px 100px;
+}
+
+.avatarAndDesc,
+.posts {
+    padding: 20px 100px;
+}

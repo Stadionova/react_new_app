@@ -1,22 +1,22 @@
 import React from "react";
-import "./Navigation.css";
+import classes from "./Navigation.module.css";
 
 const Navigation = () => {
     return (
-        <nav className="app-wrapper__navigation">
-            <div className="app-wrapper__navigation-item">
+        <nav className={classes.navigation}>
+            <div className={classes.item}>
                 <a>Profile</a>
             </div>
-            <div className="app-wrapper__navigation-item">
+            <div className={classes.item}>
                 <a>Messages</a>
             </div>
-            <div className="app-wrapper__navigation-item">
+            <div className={classes.item}>
                 <a>News</a>
             </div>
-            <div className="app-wrapper__navigation-item">
+            <div className={classes.item}>
                 <a>Music</a>
             </div>
-            <div className="app-wrapper__navigation-item">
+            <div className={classes.item}>
                 <a>Settings</a>
             </div>
         </nav>
