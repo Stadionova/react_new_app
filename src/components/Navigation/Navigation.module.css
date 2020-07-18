@@ -3,6 +3,11 @@
     background-color: cadetblue;
 }
 
-.item {
+.item a.activeLink {
+    color: gold;
+    font-weight: 800;
+}
+
+.item a {
     color: blue;
 }
