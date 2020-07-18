@@ -3,7 +3,7 @@ import classes from "./Dialogs.module.css";
 
 const Dialogs = () => {
     return (
-        <div>Dialogs Page</div>
+        <div className={classes.dialogs}>Dialogs Page</div>
     )
 };
 
