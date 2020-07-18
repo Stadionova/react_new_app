@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./MainContent.module.css";
+import classes from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 
-const MainContent = () => {
+const Profile = () => {
     return (
         <main className={classes.content}>
             <div className={classes.headlinePhoto}>
@@ -19,4 +19,4 @@ const MainContent = () => {
     )
 };
 
-export default MainContent;
+export default Profile;

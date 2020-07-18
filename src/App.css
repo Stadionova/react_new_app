@@ -6,3 +6,9 @@
     width: 1200px;
     margin: 0 auto;
 }
+
+.app-wrapper__mainContent {
+    border: 1px solid red;
+    grid-area: c;
+    background-color: darkgoldenrod;
+}
