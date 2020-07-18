@@ -10,4 +10,6 @@
 
 .item a {
     color: blue;
+    text-decoration: none;
+    padding: 20px;
 }
