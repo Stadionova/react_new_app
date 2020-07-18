@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./MainContent.module.css";
+import MyPosts from "./MyPosts/MyPosts";
 
 const MainContent = () => {
     return (
@@ -13,16 +14,7 @@ const MainContent = () => {
                 </div>
                 <div>Profile Description</div>
             </div>
-            <div className={classes.posts}>
-                <div>My posts</div>
-                <div>Create New Post</div>
-                <div>
-                    <input></input>
-                </div>
-                <div>
-                    <button>Button</button>
-                </div>
-            </div>
+            <MyPosts />
         </main>
     )
 };
