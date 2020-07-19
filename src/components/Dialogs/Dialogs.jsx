@@ -7,16 +7,16 @@ const Dialogs = () => {
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                 <div>
-                    <NavLink to='/anton' className={classes.itemDialog} activeClassName={classes.activeDialog}>Anton</NavLink>
+                    <NavLink to='/messages/1' className={classes.itemDialog} activeClassName={classes.activeDialog}>Anton</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/sveta' className={classes.itemDialog} activeClassName={classes.activeDialog}>Sveta</NavLink>
+                    <NavLink to='/messages/2' className={classes.itemDialog} activeClassName={classes.activeDialog}>Sveta</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/yulia' className={classes.itemDialog} activeClassName={classes.activeDialog}>Yulia</NavLink>
+                    <NavLink to='/messages/3' className={classes.itemDialog} activeClassName={classes.activeDialog}>Yulia</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/sergey' className={classes.itemDialog} activeClassName={classes.activeDialog}>Sergey</NavLink>
+                    <NavLink to='/messages/4' className={classes.itemDialog} activeClassName={classes.activeDialog}>Sergey</NavLink>
                 </div>
             </div>
             <div className={classes.dialogsMessages}>
