@@ -3,13 +3,11 @@
     background-color: cadetblue;
 }
 
-.item a.activeLink {
-    color: gold;
-    font-weight: 800;
+.navigation a {
+    text-decoration: none;
 }
 
-.item a {
-    color: blue;
-    text-decoration: none;
-    padding: 20px;
+.item .activeLink {
+    color: gold;
+    font-weight: 800;
 }
