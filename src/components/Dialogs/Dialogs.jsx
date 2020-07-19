@@ -2,27 +2,28 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
 
+const Dialog = (props) => {
+    return <div><NavLink to={'/messages/1' + props.id} className={classes.itemDialog} activeClassName={classes.activeDialog}>{props.name}</NavLink></div>
+};
+
+const Messages = (props) => {
+    return <div className={classes.messages}>{props.message}</div>
+};
+
 const Dialogs = () => {
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
-                <div>
-                    <NavLink to='/messages/1' className={classes.itemDialog} activeClassName={classes.activeDialog}>Anton</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/messages/2' className={classes.itemDialog} activeClassName={classes.activeDialog}>Sveta</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/messages/3' className={classes.itemDialog} activeClassName={classes.activeDialog}>Yulia</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/messages/4' className={classes.itemDialog} activeClassName={classes.activeDialog}>Sergey</NavLink>
-                </div>
+                <Dialog name='Anton' id='1' />
+                <Dialog name='Sveta' id='2' />
+                <Dialog name='Yulia' id='3' />
+                <Dialog name='Sergey' id='4' />
             </div>
             <div className={classes.dialogsMessages}>
-                <div className={classes.messages}>Hi!</div>
-                <div className={classes.messages}>How are you doing?</div>
-                <div className={classes.messages}>Don't leave me onread, please...</div>
+                <Messages message='Hi!' />
+                <Messages message='How are you doing?' />
+                <Messages message='Do not leave me onread, please...' />
+                <Messages message='ok, back off!' />
             </div>
         </div>
     )
