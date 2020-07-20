@@ -10,20 +10,28 @@ const Messages = (props) => {
     return <div className={classes.messages}>{props.message}</div>
 };
 
+const dialogsData = [
+    { id: 1, name: 'Anton', message: 'Hi, how are you doing?' },
+    { id: 2, name: 'Sergey', message: 'Why did you leave me on read?' },
+    { id: 3, name: 'Yulia', message: 'Ok, back off!' },
+    { id: 4, name: 'Sveta', message: 'bye!' }
+];
+
+
 const Dialogs = () => {
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
-                <Dialog name='Anton' id='1' />
-                <Dialog name='Sveta' id='2' />
-                <Dialog name='Yulia' id='3' />
-                <Dialog name='Sergey' id='4' />
+                <Dialog name={dialogsData[0].name} id={dialogsData[0].id} />
+                <Dialog name={dialogsData[1].name} id={dialogsData[1].id} />
+                <Dialog name={dialogsData[2].name} id={dialogsData[2].id} />
+                <Dialog name={dialogsData[3].name} id={dialogsData[3].id} />
             </div>
             <div className={classes.dialogsMessages}>
-                <Messages message='Hi!' />
-                <Messages message='How are you doing?' />
-                <Messages message='Do not leave me onread, please...' />
-                <Messages message='ok, back off!' />
+                <Messages message={dialogsData[0].message} />
+                <Messages message={dialogsData[1].message} />
+                <Messages message={dialogsData[2].message} />
+                <Messages message={dialogsData[3].message} />
             </div>
         </div>
     )
