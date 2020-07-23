@@ -21,8 +21,8 @@ let dialogsElements = dialogsData.map((dialog) => {
     return <Dialog name={dialog.name} id={dialog.id} />
 });
 
-let messageElements = dialogsData.map((dialog) => {
-    return <Messages message={dialog.message} />
+let messageElements = dialogsData.map((dialogMessage) => {
+    return <Messages message={dialogMessage.message} />
 });
 
 const Dialogs = () => {
