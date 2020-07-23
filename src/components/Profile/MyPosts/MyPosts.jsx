@@ -8,6 +8,10 @@ const messagesData = [
     { id: 3, name: 'Yulia', message: 'Ok, back off!' }
 ];
 
+const postsElements = messagesData.map((post) => {
+    return <Post postNum={post.id} text={post.message} />
+});
+
 const MyPosts = () => {
     return (
         <div className={classes.posts}>
@@ -20,9 +24,7 @@ const MyPosts = () => {
                 <button>Add Post</button>
                 <button>Remove Post</button>
             </div>
-            <Post postNum='1. ' text={messagesData[0].message} />
-            <Post postNum='2. ' text={messagesData[1].message} />
-            <Post postNum='3. ' text={messagesData[2].message} />
+            {postsElements}
         </div>
     )
 };
