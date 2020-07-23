@@ -1,0 +1,19 @@
+.dialogs {
+    background-color: tomato;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.itemDialog {
+    color: brown;
+    text-decoration: none;
+}
+
+.activeDialog {
+    color: gold;
+}
+
+.messages {
+    color: green;
+}
