@@ -16,11 +16,11 @@ const App = () => {
         <Header />
         <Navigation />
         <div className='app-wrapper__mainContent'>
-          <Route path='/profile' component={Profile} />
-          <Route path='/messages' component={Dialogs} />
-          <Route path='/news' component={News} />
-          <Route path='/music' component={Music} />
-          <Route path='/settings' component={Settings} />
+          <Route path='/profile' render={() => <Profile />} />
+          <Route path='/messages' render={() => <Dialogs />} />
+          <Route path='/news' render={() => <News />} />
+          <Route path='/music' render={() => <Music />} />
+          <Route path='/settings' render={() => <Settings />} />
         </div>
       </div>
     </BrowserRouter>
