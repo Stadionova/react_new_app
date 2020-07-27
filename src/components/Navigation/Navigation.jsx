@@ -1,8 +1,14 @@
 import React from "react";
 import classes from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
+import Friends from "../Friends/Friends";
 
 const Navigation = (props) => {
+
+    let friendsIcons = props.friends.map((friend) => {
+        return <Friends name={friend.name} avatar={friend.avatar} />
+    });
+
     return (
         <nav className={classes.navigation}>
             <div className={classes.item}>
@@ -22,21 +28,9 @@ const Navigation = (props) => {
             </div>
             <div className={classes.item}>
                 <NavLink to='/friends' activeClassName={classes.activeLink}>Friends</NavLink>
-                <br />
-                <div className={classes.avatars}>
-                    <NavLink to='/Sveta' activeClassName={classes.activeLink}>
-                        <div>{props.friends[0].name}</div>
-                        <img className={classes.avatar} src={props.friends[0].avatar} alt="Sveta" />
-                    </NavLink>
-                    <NavLink to='/Yura' activeClassName={classes.activeLink}>
-                        <div>{props.friends[1].name}</div>
-                        <img className={classes.avatar} src={props.friends[1].avatar} alt="Yura" />
-                    </NavLink>
-                    <NavLink to='/Yulia' activeClassName={classes.activeLink}>
-                        <div>{props.friends[2].name}</div>
-                        <img className={classes.avatar} src={props.friends[2].avatar} alt="Yulia" />
-                    </NavLink>
-                </div>
+            </div>
+            <div className={classes.avatars}>
+                {friendsIcons}
             </div>
         </nav>
     )

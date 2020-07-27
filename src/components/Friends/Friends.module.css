@@ -1,4 +1,9 @@
-.settings {
-    background-color: yellow;
-    height: 100%;
+.avatars {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
 }
