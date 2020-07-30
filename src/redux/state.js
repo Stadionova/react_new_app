@@ -17,4 +17,13 @@ let state = {
     ]
 }
 
+export const addPost = (message) => {
+    let newObj = {
+        id: 5,
+        name: 'Anna',
+        message: message
+    };
+    state.dialogsState.push(newObj);
+};
+
 export default state;
