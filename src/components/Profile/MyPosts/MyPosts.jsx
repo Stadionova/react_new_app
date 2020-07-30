@@ -10,7 +10,8 @@ const MyPosts = (props) => {
 
     function addPost() {
         let text = newPost.current.value;
-        console.log('text ', text);
+        props.addPost(text);
+        // console.log('text ', text);
     }
 
     const postsElements = props.messagesData.map((post) => {
