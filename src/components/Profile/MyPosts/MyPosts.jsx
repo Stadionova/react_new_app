@@ -4,8 +4,11 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
+    const newPost = React.createRef();
+
     function addPost() {
-        console.log(1);
+        let text = newPost.current.value;
+        console.log('text ', text);
     }
 
     const postsElements = props.messagesData.map((post) => {
@@ -17,7 +20,7 @@ const MyPosts = (props) => {
             <div>My posts</div>
             <div>Create New Post</div>
             <div>
-                <input placeholder='write text here'></input>
+                <input ref={newPost} placeholder='write text here'></input>
             </div>
             <div>
                 <button onClick={addPost}>Add Post</button>
