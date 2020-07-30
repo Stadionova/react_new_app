@@ -10,7 +10,7 @@ addPost('helllllo Julia');
 
 ReactDOM.render(
   <React.StrictMode>
-    <App stateData={state} />
+    <App stateData={state} addPost={addPost}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

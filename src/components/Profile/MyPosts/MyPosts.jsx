@@ -4,6 +4,8 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
+    props.addPost('прокинула пропсы');
+
     const newPost = React.createRef();
 
     function addPost() {
