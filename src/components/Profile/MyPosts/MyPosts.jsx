@@ -4,6 +4,10 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
+    function addPost() {
+        console.log(1);
+    }
+
     const postsElements = props.messagesData.map((post) => {
         return <Post postNum={post.id} text={post.message} />
     });
@@ -16,7 +20,7 @@ const MyPosts = (props) => {
                 <input placeholder='write text here'></input>
             </div>
             <div>
-                <button>Add Post</button>
+                <button onClick={addPost}>Add Post</button>
                 <button>Remove Post</button>
             </div>
             {postsElements}
