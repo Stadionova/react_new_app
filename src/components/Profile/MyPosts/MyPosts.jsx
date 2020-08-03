@@ -3,13 +3,18 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    
+
     const newPost = React.createRef();
+    const newValue = React.createRef();
 
     function addPost() {
         let text = newPost.current.value;
         props.addPost(text);
         newPost.current.value = '';
+    }
+
+    function changeValue() {
+        console.log(1);
     }
 
     const postsElements = props.messagesData.map((post) => {
@@ -21,7 +26,7 @@ const MyPosts = (props) => {
             <div>My posts</div>
             <div>Create New Post</div>
             <div>
-                <input ref={newPost} placeholder='write text here'></input>
+                <input value={props.inputValue} onChange={changeValue} ref={newPost} placeholder='write text here'></input>
             </div>
             <div>
                 <button onClick={addPost}>Add Post</button>
