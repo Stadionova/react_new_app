@@ -7,7 +7,6 @@ const MyPosts = (props) => {
     const newPost = React.createRef();
 
     function addPost() {
-        let text = newPost.current.value;
         props.addPost();
         props.updateInputValue('');
     }
