@@ -20,11 +20,11 @@ let state = {
     inputValue: ''
 }
 
-export const addPost = (message) => {
+export const addPost = () => {
     let newObj = {
         id: 5,
         name: 'Anna',
-        message: message
+        message: state.inputValue
     };
     state.dialogsState.push(newObj);
     renderFunc(state);
