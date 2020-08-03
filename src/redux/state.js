@@ -17,9 +17,7 @@ let state = {
         { id: 2, name: 'Yura', avatar: 'https://zastavok.net/main/flowers/154988358280.jpg' },
         { id: 3, name: 'Yulia', avatar: 'https://st.depositphotos.com/1614195/1700/i/450/depositphotos_17008045-stock-photo-colorful-hearts.jpg' }
     ],
-    inputValue: [
-        'new value hardcoded'
-    ]
+    inputValue: ''
 }
 
 export const addPost = (message) => {
@@ -29,6 +27,11 @@ export const addPost = (message) => {
         message: message
     };
     state.dialogsState.push(newObj);
+    renderFunc(state);
+};
+
+export const updateInputValue = (text) => {
+    state.inputValue = text;
     renderFunc(state);
 };
 

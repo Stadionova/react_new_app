@@ -5,16 +5,16 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
 
     const newPost = React.createRef();
-    const newValue = React.createRef();
 
     function addPost() {
         let text = newPost.current.value;
         props.addPost(text);
-        newPost.current.value = '';
+        props.updateInputValue('');
     }
 
     function changeValue() {
-        console.log(1);
+        let text = newPost.current.value;
+        props.updateInputValue(text);
     }
 
     const postsElements = props.messagesData.map((post) => {
