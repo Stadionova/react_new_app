@@ -1,3 +1,5 @@
+import renderFunc from '../render';
+
 let state = {
     dialogsState: [
         { id: 1, name: 'Anton', message: 'Hi, how are you doing?' },
@@ -24,6 +26,7 @@ export const addPost = (message) => {
         message: message
     };
     state.dialogsState.push(newObj);
+    renderFunc(state);
 };
 
 export default state;

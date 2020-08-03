@@ -3,15 +3,13 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-
-    props.addPost('прокинула пропсы');
-
+    
     const newPost = React.createRef();
 
     function addPost() {
         let text = newPost.current.value;
         props.addPost(text);
-        // console.log('text ', text);
+        newPost.current.value = '';
     }
 
     const postsElements = props.messagesData.map((post) => {
