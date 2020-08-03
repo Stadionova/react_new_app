@@ -1,5 +1,3 @@
-import renderFunc from '../render';
-
 let state = {
     dialogsState: [
         { id: 1, name: 'Anton', message: 'Hi, how are you doing?' },
@@ -20,6 +18,10 @@ let state = {
     inputValue: ''
 }
 
+let renderFunc = () => {
+    console.log('state was changed');
+}
+
 export const addPost = () => {
     let newObj = {
         id: 5,
@@ -34,5 +36,9 @@ export const updateInputValue = (text) => {
     state.inputValue = text;
     renderFunc(state);
 };
+
+export let passState = (observer) => {
+    renderFunc = observer;
+}
 
 export default state;
