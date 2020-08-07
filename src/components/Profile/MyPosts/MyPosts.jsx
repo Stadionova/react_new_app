@@ -7,13 +7,14 @@ const MyPosts = (props) => {
     const newPost = React.createRef();
 
     function addPost() {
-        props.addPost();
-        props.updateInputValue('');
+        let action = { type: 'ADD-POST' };
+        props.dispatch(action);
     }
 
     function changeValue() {
         let text = newPost.current.value;
-        props.updateInputValue(text);
+        let action = { type: 'UPDATE-INPUT-VALUE', text: text };
+        props.dispatch(action);
     }
 
     const postsElements = props.messagesData.map((post) => {

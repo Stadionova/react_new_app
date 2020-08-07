@@ -18,24 +18,25 @@ let store = {
         ],
         inputValue: ''
     },
-    addPost() {
-        let newObj = {
-            id: 5,
-            name: 'Anna',
-            message: this.state.inputValue
-        };
-        this.state.dialogsState.push(newObj);
-        this.renderFunc(this.state);
-    },
-    updateInputValue(text) {
-        this.state.inputValue = text;
-        this.renderFunc(this.state);
-    },
     passState(observer) {
         this.renderFunc = observer;
     },
     renderFunc() {
         console.log('state was changed');
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newObj = {
+                id: 5,
+                name: 'Anna',
+                message: this.state.inputValue
+            };
+            this.state.dialogsState.push(newObj);
+            this.renderFunc(this.state);
+        } else if (action.type === 'UPDATE-INPUT-VALUE') {
+            this.state.inputValue = action.text;
+            this.renderFunc(this.state);
+        }
     }
 }
 

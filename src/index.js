@@ -10,8 +10,7 @@ let renderFunc = (state) => {
     <React.StrictMode>
       <App
         stateData={state}
-        addPost={store.addPost.bind(store)}
-        updateInputValue={store.updateInputValue.bind(store)} />
+        dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );
