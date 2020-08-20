@@ -1,3 +1,6 @@
+const addPost = 'ADD-POST';
+const updateInputValue = 'UPDATE-INPUT-VALUE';
+
 let store = {
     state: {
         dialogsState: [
@@ -38,6 +41,14 @@ let store = {
             this.renderFunc(this.state);
         }
     }
+}
+
+export const actionCreatorAddPost = () => {
+    return { type: addPost };
+}
+
+export const actionCreatorChangeValue = (texts) => {
+    return { type: updateInputValue, text: texts };
 }
 
 export default store;

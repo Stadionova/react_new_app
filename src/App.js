@@ -17,6 +17,7 @@ const App = (props) => {
         <Navigation friends={props.stateData.friends} />
         <div className='app-wrapper__mainContent'>
           <Route path='/profile' render={() => <Profile
+            dispatch={props.dispatch}
             inputValue={props.stateData.inputValue}
             messagesData={props.stateData.dialogsState}
             addPost={props.addPost}

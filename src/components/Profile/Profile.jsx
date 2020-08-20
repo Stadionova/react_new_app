@@ -7,6 +7,7 @@ const Profile = (props) => {
         <main>
             <ProfileInfo />
             <MyPosts
+                dispatch={props.dispatch}
                 messagesData={props.messagesData}
                 addPost={props.addPost}
                 inputValue={props.inputValue}
