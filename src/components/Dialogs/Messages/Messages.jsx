@@ -1,20 +1,27 @@
 import React from "react";
 import classes from "./Messages.module.css";
+import { actionCreatorSendMessage } from '../../../redux/state';
+import { actionCreatorChangeMessageValue } from '../../../redux/state';
 
 const Messages = (props) => {
 
     const newMessage = React.createRef();
 
-    function showNewMessage() {
+    function sendNewMessage() {
+        props.dispatch(actionCreatorSendMessage());
+    }
+
+    function changeMessageValue() {
         let message = newMessage.current.value;
-        console.log('message ', message);
+        let action = actionCreatorChangeMessageValue(message);
+        props.dispatch(action);
     }
 
     return (
         <div>
             <div className={classes.messages}>{props.message}</div>
-            <input ref={newMessage} type="text" />
-            <button onClick={showNewMessage}>Show NEW Message</button>
+            <input value={props.messageValue} onChange={changeMessageValue} ref={newMessage} type="text" />
+            <button onClick={sendNewMessage}>Send NEW Message</button>
         </div>
     )
 };

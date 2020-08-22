@@ -1,5 +1,8 @@
-const addPost = 'ADD-POST';
-const updateInputValue = 'UPDATE-INPUT-VALUE';
+const ADD_POST = 'ADD_POST';
+const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
+
+const SEND_MESSAGE = 'SEND_MESSAGE';
+const UPDATE_MESSAGE_VALUE = 'UPDATE_MESSAGE_VALUE';
 
 let store = {
     state: {
@@ -10,16 +13,15 @@ let store = {
             { id: 4, name: 'Sveta', message: 'bye!' }
         ],
         messagesState: [
-            { id: 1, name: 'Anton', message: 'Hi, how are you doing?' },
-            { id: 2, name: 'Sergey', message: 'Why did you leave me on read?' },
-            { id: 3, name: 'Yulia', message: 'Ok, back off!' }
+            { id: 1, name: 'Anton', message: 'Hi, how are you doing?' }
         ],
         friends: [
             { id: 1, name: 'Sveta', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSu5ynOF_b8D1wg6ZAWc6IsMnEYlaXo8OBdYg&usqp=CAU' },
             { id: 2, name: 'Yura', avatar: 'https://zastavok.net/main/flowers/154988358280.jpg' },
             { id: 3, name: 'Yulia', avatar: 'https://st.depositphotos.com/1614195/1700/i/450/depositphotos_17008045-stock-photo-colorful-hearts.jpg' }
         ],
-        inputValue: ''
+        inputValue: '',
+        messageValue: ''
     },
     passState(observer) {
         this.renderFunc = observer;
@@ -28,7 +30,7 @@ let store = {
         console.log('state was changed');
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === 'ADD_POST') {
             let newObj = {
                 id: 5,
                 name: 'Anna',
@@ -36,19 +38,38 @@ let store = {
             };
             this.state.dialogsState.push(newObj);
             this.renderFunc(this.state);
-        } else if (action.type === 'UPDATE-INPUT-VALUE') {
+        } else if (action.type === 'UPDATE_INPUT_VALUE') {
             this.state.inputValue = action.text;
+            this.renderFunc(this.state);
+        } else if (action.type === 'UPDATE_MESSAGE_VALUE') {
+            this.state.messageValue = action.text;
+            this.renderFunc(this.state);
+        } else if (action.type === 'SEND_MESSAGE') {
+            let messageText = {
+                id: 5,
+                name: 'Anna',
+                message: this.state.messageValue
+            };
+            this.state.messagesState.push(messageText);
             this.renderFunc(this.state);
         }
     }
 }
 
 export const actionCreatorAddPost = () => {
-    return { type: addPost };
+    return { type: ADD_POST };
 }
 
 export const actionCreatorChangeValue = (texts) => {
-    return { type: updateInputValue, text: texts };
+    return { type: UPDATE_INPUT_VALUE, text: texts };
+}
+
+export const actionCreatorSendMessage = () => {
+    return { type: SEND_MESSAGE };
+}
+
+export const actionCreatorChangeMessageValue = (texts) => {
+    return { type: UPDATE_MESSAGE_VALUE, text: texts };
 }
 
 export default store;
