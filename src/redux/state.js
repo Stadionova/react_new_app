@@ -1,8 +1,12 @@
+import reducer_profile from './reducer_profile';
+import reducer_dialogs from './reducer_dialogs';
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
 
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_MESSAGE_VALUE = 'UPDATE_MESSAGE_VALUE';
+
 
 let store = {
     state: {
@@ -30,29 +34,9 @@ let store = {
         console.log('state was changed');
     },
     dispatch(action) {
-        if (action.type === 'ADD_POST') {
-            let newObj = {
-                id: 5,
-                name: 'Anna',
-                message: this.state.inputValue
-            };
-            this.state.dialogsState.push(newObj);
-            this.renderFunc(this.state);
-        } else if (action.type === 'UPDATE_INPUT_VALUE') {
-            this.state.inputValue = action.text;
-            this.renderFunc(this.state);
-        } else if (action.type === 'UPDATE_MESSAGE_VALUE') {
-            this.state.messageValue = action.text;
-            this.renderFunc(this.state);
-        } else if (action.type === 'SEND_MESSAGE') {
-            let messageText = {
-                id: 5,
-                name: 'Anna',
-                message: this.state.messageValue
-            };
-            this.state.messagesState.push(messageText);
-            this.renderFunc(this.state);
-        }
+        this.state.dialogsState = reducer_profile(action, this.state.dialogsState);
+        this.state.messagesState = reducer_dialogs(action, this.state.messagesState);
+        this.renderFunc(this.state);
     }
 }
 
