@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Messages.module.css";
-import { actionCreatorSendMessage } from '../../../redux/state';
-import { actionCreatorChangeMessageValue } from '../../../redux/state';
+import { actionCreatorSendMessage } from '../../../redux/reducer_dialogs';
+import { actionCreatorChangeMessageValue } from '../../../redux/reducer_dialogs';
 
 const Messages = (props) => {
 

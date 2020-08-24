@@ -14,3 +14,11 @@ export default function reducer_dialogs(action, state) {
     }
     return state;
 }
+
+export const actionCreatorSendMessage = () => {
+    return { type: SEND_MESSAGE };
+}
+
+export const actionCreatorChangeMessageValue = (texts) => {
+    return { type: UPDATE_MESSAGE_VALUE, text: texts };
+}

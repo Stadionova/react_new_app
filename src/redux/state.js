@@ -1,13 +1,6 @@
 import reducer_profile from './reducer_profile';
 import reducer_dialogs from './reducer_dialogs';
 
-const ADD_POST = 'ADD_POST';
-const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
-
-const SEND_MESSAGE = 'SEND_MESSAGE';
-const UPDATE_MESSAGE_VALUE = 'UPDATE_MESSAGE_VALUE';
-
-
 let store = {
     state: {
         dialogsState: [
@@ -38,22 +31,6 @@ let store = {
         this.state.messagesState = reducer_dialogs(action, this.state.messagesState);
         this.renderFunc(this.state);
     }
-}
-
-export const actionCreatorAddPost = () => {
-    return { type: ADD_POST };
-}
-
-export const actionCreatorChangeValue = (texts) => {
-    return { type: UPDATE_INPUT_VALUE, text: texts };
-}
-
-export const actionCreatorSendMessage = () => {
-    return { type: SEND_MESSAGE };
-}
-
-export const actionCreatorChangeMessageValue = (texts) => {
-    return { type: UPDATE_MESSAGE_VALUE, text: texts };
 }
 
 export default store;

@@ -15,3 +15,11 @@ export default function reducer_profile(action, state) {
     }
     return state;
 }
+
+export const actionCreatorAddPost = () => {
+    return { type: ADD_POST };
+}
+
+export const actionCreatorChangeValue = (texts) => {
+    return { type: UPDATE_INPUT_VALUE, text: texts };
+}
