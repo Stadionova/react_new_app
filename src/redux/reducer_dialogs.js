@@ -1,7 +1,11 @@
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_MESSAGE_VALUE = 'UPDATE_MESSAGE_VALUE';
 
-export default function reducer_dialogs(action, state) {
+let initialState = [
+    { id: 1, name: 'Anton', message: 'Hi, how are you doing?' }
+];
+
+export default function reducer_dialogs(action, state = initialState) {
     if (action.type === SEND_MESSAGE) {
         let messageText = {
             id: 5,

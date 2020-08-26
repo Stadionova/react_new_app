@@ -3,7 +3,7 @@ import * as serviceWorker from './serviceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import store from './redux/state';
+import store from './redux/redux-store';
 
 let renderFunc = (state) => {
   ReactDOM.render(
@@ -18,4 +18,10 @@ let renderFunc = (state) => {
 
 renderFunc(store.state);
 store.passState(renderFunc);
+
+store.passState(() => {
+  let state = store.state;
+  renderFunc(state);
+});
+
 serviceWorker.unregister();
