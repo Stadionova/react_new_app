@@ -1,5 +1,6 @@
 import reducer_profile from './reducer_profile';
 import reducer_dialogs from './reducer_dialogs';
+import reducer_friends from './reducer_friends';
 
 let store = {
     state: {
@@ -20,15 +21,19 @@ let store = {
         inputValue: '',
         messageValue: ''
     },
-    passState(observer) {
+    getState() {
+        return this.state;
+    },
+    subscribe(observer) {
         this.renderFunc = observer;
     },
     renderFunc() {
         console.log('state was changed');
     },
     dispatch(action) {
-        this.state.dialogsState = reducer_profile(action, this.state.dialogsState);
-        this.state.messagesState = reducer_dialogs(action, this.state.messagesState);
+        this.state.dialogsState = reducer_profile(this.state.dialogsState, action);
+        this.state.messagesState = reducer_dialogs(this.state.messagesState, action);
+        this.state.friends = reducer_friends(this.state.friends, action);
         this.renderFunc(this.state);
     }
 }

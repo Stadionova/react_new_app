@@ -10,18 +10,19 @@ let renderFunc = (state) => {
     <React.StrictMode>
       <App
         stateData={state}
-        dispatch={store.dispatch.bind(store)} />
+        dispatch={store.dispatch.bind(store)} store={store} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
 
-renderFunc(store.state);
-store.passState(renderFunc);
+renderFunc(store.getState());
 
-store.passState(() => {
-  let state = store.state;
+// store.passState(renderFunc);
+
+store.subscribe(() => {
+  let state = store.getState();
   renderFunc(state);
 });
 
-serviceWorker.unregister();
+serviceWorker.unregister(); 
