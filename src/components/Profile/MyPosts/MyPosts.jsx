@@ -1,26 +1,23 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { actionCreatorAddPost } from '../../../redux/reducer_profile';
-import { actionCreatorChangeValue } from '../../../redux/reducer_profile';
 
 const MyPosts = (props) => {
 
     const newPost = React.createRef();
 
-    function addPost() {
-        props.dispatch(actionCreatorAddPost());
+    const postsElements = props.posts.map((post) => {
+        return <Post postNum={post.id} text={post.message} />
+    });
+
+    function onAddPost() {
+        props.addPost();
     }
 
     function changeValue() {
         let texts = newPost.current.value;
-        let action = actionCreatorChangeValue(texts);
-        props.dispatch(action);
+        props.updateInputValue(texts);
     }
-
-    const postsElements = props.messagesData.map((post) => {
-        return <Post postNum={post.id} text={post.message} />
-    });
 
     return (
         <div className={classes.posts}>
@@ -30,7 +27,7 @@ const MyPosts = (props) => {
                 <input value={props.inputValue} onChange={changeValue} ref={newPost} placeholder='write text here'></input>
             </div>
             <div>
-                <button onClick={addPost}>Add Post</button>
+                <button onClick={onAddPost}>Add Post</button>
                 <button>Remove Post</button>
             </div>
             {postsElements}

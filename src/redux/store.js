@@ -4,12 +4,15 @@ import reducer_friends from './reducer_friends';
 
 let store = {
     state: {
-        dialogsState: [
-            { id: 1, name: 'Anton', message: 'Hi, how are you doing?' },
-            { id: 2, name: 'Sergey', message: 'Why did you leave me on read?' },
-            { id: 3, name: 'Yulia', message: 'Ok, back off!' },
-            { id: 4, name: 'Sveta', message: 'bye!' }
-        ],
+        profilePage: {
+            dialogsState: [
+                { id: 1, name: 'Anton', message: 'Hi, how are you doing?' },
+                { id: 2, name: 'Sergey', message: 'Why did you leave me on read?' },
+                { id: 3, name: 'Yulia', message: 'Ok, back off!' },
+                { id: 4, name: 'Sveta', message: 'bye!' }
+            ],
+            inputValue: ''
+        },
         messagesState: [
             { id: 1, name: 'Anton', message: 'Hi, how are you doing?' }
         ],
@@ -20,6 +23,19 @@ let store = {
         ],
         inputValue: '',
         messageValue: ''
+    },
+    addPost() {
+        let newObj = {
+            id: 5,
+            name: 'Anna',
+            message: this.state.inputValue
+        };
+        this.state.dialogsState.push(newObj);
+        this.renderFunc(this.state);
+    },
+    updateInputValue(text) {
+        this.state.inputValue = text;
+        this.renderFunc(this.state);
     },
     getState() {
         return this.state;

@@ -12,7 +12,6 @@ const Messages = (props) => {
     }
 
     function changeMessageValue(event) {
-        // let message = newMessage.current.value;
         let message = event.target.value;
         let action = actionCreatorChangeMessageValue(message);
         props.dispatch(action);

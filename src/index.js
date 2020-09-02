@@ -18,8 +18,6 @@ let renderFunc = (state) => {
 
 renderFunc(store.getState());
 
-// store.passState(renderFunc);
-
 store.subscribe(() => {
   let state = store.getState();
   renderFunc(state);
