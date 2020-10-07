@@ -5,6 +5,7 @@ import { actionCreatorChangeValue } from '../../../redux/reducer_profile';
 import store from "../../../redux/store";
 
 const MyPostsContainer = (props) => {
+
     return (
         <MyContext.Consumer> {(store) => {
             let state = props.store.getState();
