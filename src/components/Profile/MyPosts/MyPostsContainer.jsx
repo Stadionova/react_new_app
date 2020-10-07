@@ -6,24 +6,25 @@ import store from "../../../redux/store";
 
 const MyPostsContainer = (props) => {
     return (
-        <MyContext.Consumer> {(store) => {
-            let state = props.store.getState();
+        <MyContext.Consumer> {
+            (store) => {
+                let state = props.store.getState();
 
-            function addPost() {
-                props.store.dispatch(actionCreatorAddPost());
+                function addPost() {
+                    props.store.dispatch(actionCreatorAddPost());
+                }
+
+                function changeValue(texts) {
+                    let action = actionCreatorChangeValue(texts);
+                    props.store.dispatch(action);
+                }
+
+                < MyPosts
+                    updateInputValue={changeValue}
+                    addPost={addPost}
+                    posts={state.dialogsState}
+                    newPostText={state.inputValue} />
             }
-
-            function changeValue(texts) {
-                let action = actionCreatorChangeValue(texts);
-                props.store.dispatch(action);
-            }
-
-            < MyPosts
-                updateInputValue={changeValue}
-                addPost={addPost}
-                posts={state.dialogsState}
-                newPostText={state.inputValue} />
-        }
         }
         </MyContext.Consumer>
     )
