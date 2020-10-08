@@ -9,11 +9,11 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import { Route } from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <Navigation />
+      <Navigation props={props} />
       <div className='app-wrapper__mainContent'>
         <Route path='/profile' render={() => <Profile />} />
         <Route path='/messages' render={() => <DialogsContainer />} />

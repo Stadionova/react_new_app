@@ -5,7 +5,7 @@ import Friends from "../Friends/Friends";
 
 const Navigation = (props) => {
 
-    let friendsIcons = props.friends.map((friend) => {
+    let friendsIcons = props.props.props.friends.map((friend) => {
         return <Friends name={friend.name} avatar={friend.avatar} />
     });
 
