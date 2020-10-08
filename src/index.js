@@ -7,7 +7,7 @@ import store from './redux/redux-store';
 import StoreContext from './StoreContext';
 import { BrowserRouter } from 'react-router-dom';
 
-let renderFunc = (state) => {
+let renderFunc = () => {
   ReactDOM.render(
     <BrowserRouter>
       <StoreContext.Provider value={store}>
