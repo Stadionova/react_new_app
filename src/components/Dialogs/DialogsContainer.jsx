@@ -7,7 +7,6 @@ const DialogsContainer = () => {
     return <StoreContext.Consumer>
         {store => {
             let state = store.getState();
-            console.log('state ', state);
 
             function addPost() {
                 store.dispatch(actionCreatorSendMessage());
