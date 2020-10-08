@@ -1,32 +1,31 @@
 import React from "react";
 import Dialogs from './Dialogs';
-import { actionCreatorAddPost } from '../../../redux/reducer_profile';
-import { actionCreatorChangeValue } from '../../../redux/reducer_profile';
-import store from "../../../redux/store";
+import StoreContext from '../../StoreContext';
+import { actionCreatorChangeMessageValue, actionCreatorSendMessage } from '../../../redux/reducer_dialogs';
 
-const DialogsContainer = (props) => {
+const DialogsContainer = () => {
     return (
-        <MyContext.Consumer> {
+        <StoreContext.Consumer> {
             (store) => {
-                let state = props.store.getState();
+                let state = store.getState();
 
                 function addPost() {
-                    props.store.dispatch(actionCreatorAddPost());
+                    store.dispatch(actionCreatorSendMessage());
                 }
 
                 function changeValue(texts) {
-                    let action = actionCreatorChangeValue(texts);
-                    props.store.dispatch(action);
+                    let action = actionCreatorChangeMessageValue(texts);
+                    store.dispatch(action);
                 }
 
                 < Dialogs
-                    updateInputValue={changeValue}
-                    addPost={addPost}
-                    posts={state.dialogsState}
-                    newPostText={state.inputValue} />
+                    changeMessageValue={changeValue}
+                    sendMessage={addPost}
+                    dialogsPage={state}
+                />
             }
         }
-        </MyContext.Consumer>
+        </StoreContext.Consumer>
     )
 };
 

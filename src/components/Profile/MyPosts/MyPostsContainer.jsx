@@ -1,22 +1,21 @@
 import React from "react";
 import MyPosts from './MyPosts';
-import { actionCreatorAddPost } from '../../../redux/reducer_profile';
-import { actionCreatorChangeValue } from '../../../redux/reducer_profile';
-import store from "../../../redux/store";
+import StoreContext from '../../StoreContext';
+import { actionCreatorChangeValue, actionCreatorAddPost } from '../../../redux/reducer_profile';
 
-const MyPostsContainer = (props) => {
+const MyPostsContainer = () => {
     return (
-        <MyContext.Consumer> {
+        <StoreContext.Consumer> {
             (store) => {
-                let state = props.store.getState();
+                let state = store.getState();
 
                 function addPost() {
-                    props.store.dispatch(actionCreatorAddPost());
+                    store.dispatch(actionCreatorAddPost());
                 }
 
                 function changeValue(texts) {
                     let action = actionCreatorChangeValue(texts);
-                    props.store.dispatch(action);
+                    store.dispatch(action);
                 }
 
                 < MyPosts
@@ -26,7 +25,7 @@ const MyPostsContainer = (props) => {
                     newPostText={state.inputValue} />
             }
         }
-        </MyContext.Consumer>
+        </StoreContext.Consumer>
     )
 };
 
