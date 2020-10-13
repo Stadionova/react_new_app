@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
-import Friends from "../Friends/Friends";
+// import Friends from "../Friends/Friends";
 
 const Navigation = (props) => {
 
-    let friendsIcons = props.props.props.friends.map((friend) => {
-        return <Friends name={friend.name} avatar={friend.avatar} />
-    });
+    // let friendsIcons = props.props.props.friends.map((friend) => {
+    //     return <Friends name={friend.name} avatar={friend.avatar} />
+    // });
 
     return (
         <nav className={classes.navigation}>
@@ -30,7 +30,7 @@ const Navigation = (props) => {
                 <NavLink to='/friends' activeClassName={classes.activeLink}>Friends</NavLink>
             </div>
             <div className={classes.avatars}>
-                {friendsIcons}
+                {/* {friendsIcons} */}
             </div>
         </nav>
     )
