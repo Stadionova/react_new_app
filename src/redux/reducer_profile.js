@@ -9,17 +9,18 @@ let initialState = [
 ];
 
 export default function reducer_profile(state = initialState, action) {
+    let stateCopy = [...state];
     if (action.type && action.type === ADD_POST) {
         let newObj = {
             id: 5,
             name: 'Anna',
             message: state.inputValue
         };
-        state.push(newObj);
+        stateCopy.push(newObj);
     } else if (action.type && action.type === UPDATE_INPUT_VALUE) {
-        state.inputValue = action.text;
+        stateCopy.inputValue = action.text;
     }
-    return state;
+    return stateCopy;
 }
 
 export const actionCreatorAddPost = () => {

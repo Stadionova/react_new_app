@@ -16,11 +16,6 @@ let renderFunc = () => {
     </BrowserRouter>, document.getElementById('root'));
 }
 
-renderFunc(store.getState());
-
-store.subscribe(() => {
-  let state = store.getState();
-  renderFunc(state);
-});
+renderFunc();
 
 serviceWorker.unregister(); 
