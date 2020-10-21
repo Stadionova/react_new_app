@@ -7,7 +7,10 @@ const MyPosts = (props) => {
     const newPost = React.createRef();
 
     const postsElements = props.posts.map((post) => {
-        return <Post postNum={post.id} text={post.message} />
+        return <Post
+            postNum={post.id}
+            text={post.message}
+            key={post.id} />
     });
 
     function onAddPost() {
