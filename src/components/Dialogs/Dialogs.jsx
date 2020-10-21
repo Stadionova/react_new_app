@@ -5,7 +5,7 @@ import Messages from "./Messages/Messages";
 
 const Dialogs = (props) => {
 
-    console.log('props ', props);
+    // console.log('props ', props);
 
     let dialogsElements = props.dialogsPage.map((dialog) => {
         return <Dialog

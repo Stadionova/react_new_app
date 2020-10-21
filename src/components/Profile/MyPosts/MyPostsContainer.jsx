@@ -2,14 +2,14 @@ import MyPosts from './MyPosts';
 import { actionCreatorChangeValue, actionCreatorAddPost } from '../../../redux/reducer_profile';
 import { connect } from 'react-redux';
 
-let mapStateToProps = (state) => {
+let mapStateToPropsPost = (state) => {
     return {
         posts: state.dialogsState,
         newPostText: state.inputValue
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToPropsPost = (dispatch) => {
     return {
         updateInputValue: (texts) => {
             dispatch(actionCreatorChangeValue(texts));
@@ -20,6 +20,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+const MyPostsContainer = connect(mapStateToPropsPost, mapDispatchToPropsPost)(MyPosts);
 
 export default MyPostsContainer;

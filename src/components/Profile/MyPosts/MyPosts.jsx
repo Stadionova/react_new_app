@@ -1,16 +1,21 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import Messages from "./Post/Post";
 
 const MyPosts = (props) => {
 
     const newPost = React.createRef();
 
+    console.log('props MyPosts ', props);
+
     const postsElements = props.posts.map((post) => {
         return <Post
             postNum={post.id}
             text={post.message}
-            key={post.id} />
+            key={post.id}
+            dispatchChangeValue={props.updateInputValue}
+            dispatchAddPost={props.addPost} />
     });
 
     function onAddPost() {

@@ -20,12 +20,12 @@ export default function reducer_dialogs(state = initialState, action) {
     return stateCopy;
 }
 
-export const actionCreatorSendMessage = () => {
-    console.log(3);
-    return { type: SEND_MESSAGE };
-}
-
 export const actionCreatorChangeMessageValue = (texts) => {
     console.log(4);
     return { type: UPDATE_MESSAGE_VALUE, text: texts };
+}
+
+export const actionCreatorSendMessage = () => {
+    console.log(3);
+    return { type: SEND_MESSAGE };
 }
