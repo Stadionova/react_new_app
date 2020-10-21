@@ -6,17 +6,18 @@ let initialState = [
 ];
 
 export default function reducer_dialogs(state = initialState, action) {
+    let stateCopy = [...state];
     if (action.type && action.type === SEND_MESSAGE) {
         let messageText = {
             id: 5,
             name: 'Anna',
             message: state.messageValue
         };
-        state.push(messageText);
+        stateCopy.push(messageText);
     } else if (action.type && action.type === UPDATE_MESSAGE_VALUE) {
-        state.messageValue = action.text;
+        stateCopy.messageValue = action.text;
     }
-    return state;
+    return stateCopy;
 }
 
 export const actionCreatorSendMessage = () => {
