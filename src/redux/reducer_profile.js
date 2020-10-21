@@ -23,10 +23,12 @@ export default function reducer_profile(state = initialState, action) {
     return stateCopy;
 }
 
-export const actionCreatorAddPost = () => {
-    return { type: ADD_POST };
+export const actionCreatorChangeValue = (texts) => { // пишу что-то в инпуте на вкладке Profile
+    console.log(2);
+    return { type: UPDATE_INPUT_VALUE, text: texts };
 }
 
-export const actionCreatorChangeValue = (texts) => {
-    return { type: UPDATE_INPUT_VALUE, text: texts };
+export const actionCreatorAddPost = () => { // нажимаю кнопку Add Post на вкладке Profile
+    console.log(1);
+    return { type: ADD_POST };
 }

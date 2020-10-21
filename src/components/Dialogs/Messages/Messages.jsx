@@ -8,13 +8,16 @@ const Messages = (props) => {
     const newMessage = React.createRef();
 
     function sendNewMessage() {
-        props.dispatch(actionCreatorSendMessage());
+        console.log('click send message');
+        let action = actionCreatorSendMessage();
+        props.dispatchSendNewMessage(action);
     }
 
     function changeMessageValue(event) {
         let message = event.target.value;
+        console.log('message ', message);
         let action = actionCreatorChangeMessageValue(message);
-        props.dispatch(action);
+        props.dispatchChangeMessageValue(action);
     }
 
     return (
