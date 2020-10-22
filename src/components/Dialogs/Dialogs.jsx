@@ -7,14 +7,14 @@ const Dialogs = (props) => {
 
     // console.log('props ', props);
 
-    let dialogsElements = props.dialogsPage.map((dialog) => {
+    let dialogsElements = props.dialogsState.map((dialog) => {
         return <Dialog
             name={dialog.name}
             id={dialog.id}
             key={dialog.id} />
     });
 
-    let messageElements = props.dialogsPage.map((dialogMessage) => {
+    let messageElements = props.dialogsState.map((dialogMessage) => {
         return <Messages
             message={dialogMessage.message}
             dispatchChangeMessageValue={props.changeMessageValue}

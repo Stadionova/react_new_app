@@ -1,13 +1,9 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import Messages from "./Post/Post";
+// import Messages from "./Post/Post";
 
 const MyPosts = (props) => {
-
-    const newPost = React.createRef();
-
-    console.log('props MyPosts ', props);
 
     const postsElements = props.posts.map((post) => {
         return <Post
@@ -17,6 +13,10 @@ const MyPosts = (props) => {
             dispatchChangeValue={props.updateInputValue}
             dispatchAddPost={props.addPost} />
     });
+
+    const newPost = React.createRef();
+
+    console.log('props MyPosts ', props);
 
     function onAddPost() {
         props.addPost();
@@ -32,7 +32,7 @@ const MyPosts = (props) => {
             <div>My posts</div>
             <div>Create New Post</div>
             <div>
-                <input value={props.inputValue} onChange={changeValue} ref={newPost} placeholder='write text here'></input>
+                <input value={props.newPostText} onChange={changeValue} ref={newPost} placeholder='write text here'></input>
             </div>
             <div>
                 <button onClick={onAddPost}>Add Post</button>

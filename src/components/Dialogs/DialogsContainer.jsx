@@ -3,8 +3,9 @@ import { actionCreatorChangeMessageValue, actionCreatorSendMessage } from '../..
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
+    console.log('state_1', state);
     return {
-        dialogsPage: state.dialogsState
+        dialogsState: state.dialogsState
     }
 }
 

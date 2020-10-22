@@ -6,13 +6,13 @@ const Messages = (props) => {
     console.log(123);
     const newMessage = React.createRef();
 
-    function sendNewMessage() {
+    function sendMessage() {
         console.log('click send message');
         let action = actionCreatorSendMessage();
         props.dispatchSendNewMessage(action);
     }
 
-    function changeMessageValue(event) {
+    function updateInputValue(event) {
         let message = event.target.value;
         console.log('message ', message);
         let action = actionCreatorChangeMessageValue(message);
@@ -22,8 +22,8 @@ const Messages = (props) => {
     return (
         <div>
             <div className={classes.messages}>{props.message}</div>
-            <input value={props.messageValue} onChange={changeMessageValue} ref={newMessage} type="text" />
-            <button onClick={sendNewMessage}>Send NEW Message</button>
+            <input value={props.messageValue} onChange={updateInputValue} ref={newMessage} type="text" />
+            <button onClick={sendMessage}>Send NEW Message</button>
         </div>
     )
 };

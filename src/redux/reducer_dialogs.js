@@ -5,7 +5,7 @@ let initialState = [
     { id: 1, name: 'Anton', message: 'Hi, how are you doing?' }
 ];
 
-export default function reducer_dialogs(state = initialState, action) {
+const reducer_dialogs = (state = initialState, action) => {
     let stateCopy = [...state];
     if (action.type && action.type === SEND_MESSAGE) {
         let messageText = {
@@ -29,3 +29,5 @@ export const actionCreatorSendMessage = () => {
     console.log(3);
     return { type: SEND_MESSAGE };
 }
+
+export default reducer_dialogs;

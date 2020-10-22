@@ -24,33 +24,10 @@ let store = {
         inputValue: '',
         messageValue: ''
     },
-    addPost() {
-        let newObj = {
-            id: 5,
-            name: 'Anna',
-            message: this.state.inputValue
-        };
-        this.state.dialogsState.push(newObj);
-        this.renderFunc(this.state);
-    },
-    updateInputValue(text) {
-        this.state.inputValue = text;
-        this.renderFunc(this.state);
-    },
-    getState() {
-        return this.state;
-    },
-    subscribe(observer) {
-        this.renderFunc = observer;
-    },
-    renderFunc() {
-        console.log('state was changed');
-    },
     dispatch(action) {
         this.state.dialogsState = reducer_profile(this.state.dialogsState, action);
         this.state.messagesState = reducer_dialogs(this.state.messagesState, action);
         this.state.friends = reducer_friends(this.state.friends, action);
-        this.renderFunc(this.state);
     }
 }
 

@@ -8,7 +8,7 @@ let initialState = [
     { id: 4, name: 'Sveta', message: 'bye!' }
 ];
 
-export default function reducer_profile(state = initialState, action) {
+const reducer_profile = (state = initialState, action) => {
     let stateCopy = [...state];
     if (action.type && action.type === ADD_POST) {
         let newObj = {
@@ -32,3 +32,5 @@ export const actionCreatorAddPost = () => { // нажимаю кнопку Add P
     console.log(1);
     return { type: ADD_POST };
 }
+
+export default reducer_profile;
