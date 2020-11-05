@@ -7,26 +7,26 @@ let initialState = [
 
 const reducer_dialogs = (state = initialState, action) => {
     let stateCopy = [...state];
+    let previousPostId = stateCopy.length;
+    let nextPostId = previousPostId + 1;
     if (action.type && action.type === SEND_MESSAGE) {
         let messageText = {
-            id: 5,
+            id: nextPostId,
             name: 'Anna',
-            message: state.messageValue
+            message: state.inputValue
         };
         stateCopy.push(messageText);
     } else if (action.type && action.type === UPDATE_MESSAGE_VALUE) {
-        stateCopy.messageValue = action.text;
+        stateCopy.inputValue = action.text;
     }
     return stateCopy;
 }
 
 export const actionCreatorChangeMessageValue = (texts) => {
-    console.log(4);
     return { type: UPDATE_MESSAGE_VALUE, text: texts };
 }
 
 export const actionCreatorSendMessage = () => {
-    console.log(3);
     return { type: SEND_MESSAGE };
 }
 

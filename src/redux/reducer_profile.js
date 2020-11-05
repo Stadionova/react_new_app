@@ -10,9 +10,11 @@ let initialState = [
 
 const reducer_profile = (state = initialState, action) => {
     let stateCopy = [...state];
+    let previousPostId = stateCopy.length;
+    let nextPostId = previousPostId + 1;
     if (action.type && action.type === ADD_POST) {
         let newObj = {
-            id: 5,
+            id: nextPostId,
             name: 'Anna',
             message: state.inputValue
         };
@@ -24,12 +26,10 @@ const reducer_profile = (state = initialState, action) => {
 }
 
 export const actionCreatorChangeValue = (texts) => { // пишу что-то в инпуте на вкладке Profile
-    console.log(2);
     return { type: UPDATE_INPUT_VALUE, text: texts };
 }
 
 export const actionCreatorAddPost = () => { // нажимаю кнопку Add Post на вкладке Profile
-    console.log(1);
     return { type: ADD_POST };
 }
 

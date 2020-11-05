@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
-// import Messages from "./Post/Post";
 
 const MyPosts = (props) => {
 
@@ -9,14 +8,10 @@ const MyPosts = (props) => {
         return <Post
             postNum={post.id}
             text={post.message}
-            key={post.id}
-            dispatchChangeValue={props.updateInputValue}
-            dispatchAddPost={props.addPost} />
+            key={post.id} />
     });
 
     const newPost = React.createRef();
-
-    console.log('props MyPosts ', props);
 
     function onAddPost() {
         props.addPost();

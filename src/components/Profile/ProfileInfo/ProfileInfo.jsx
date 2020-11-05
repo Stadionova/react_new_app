@@ -5,7 +5,7 @@ const ProfileInfo = () => {
     return (
         <div>
             <div className={classes.headlinePhoto}>
-                <img src="https://news.liga.net/images/general/2019/09/11/20190911155211-5324.jpg?v=1568211567"></img>
+                <img src="https://zelenyjmir.ru/wp-content/uploads/2017/06/Pingvin-19.jpg"></img>
             </div>
             <div className={classes.avatarAndDesc}>
                 <div>

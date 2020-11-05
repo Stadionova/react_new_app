@@ -3,18 +3,15 @@ import classes from "./Messages.module.css";
 import { actionCreatorSendMessage, actionCreatorChangeMessageValue } from '../../../redux/reducer_dialogs';
 
 const Messages = (props) => {
-    console.log(123);
     const newMessage = React.createRef();
 
     function sendMessage() {
-        console.log('click send message');
         let action = actionCreatorSendMessage();
         props.dispatchSendNewMessage(action);
     }
 
     function updateInputValue(event) {
         let message = event.target.value;
-        console.log('message ', message);
         let action = actionCreatorChangeMessageValue(message);
         props.dispatchChangeMessageValue(action);
     }
