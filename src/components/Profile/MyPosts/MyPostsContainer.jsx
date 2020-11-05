@@ -1,8 +1,9 @@
 import MyPosts from './MyPosts';
-import { actionCreatorChangeValue, actionCreatorAddPost } from '../../../redux/reducer_profile';
+import { changeValue, addPost } from '../../../redux/reducer_profile';
 import { connect } from 'react-redux';
 
 let mapStateToPropsPost = (state) => {
+    console.log('state ', state);
     return {
         posts: state.dialogsState,
         newPostText: state.inputValue
@@ -12,10 +13,10 @@ let mapStateToPropsPost = (state) => {
 let mapDispatchToPropsPost = (dispatch) => {
     return {
         updateInputValue: (texts) => {
-            dispatch(actionCreatorChangeValue(texts));
+            dispatch(changeValue(texts));
         },
         addPost: () => {
-            dispatch(actionCreatorAddPost());
+            dispatch(addPost());
         }
     }
 }

@@ -25,11 +25,11 @@ const reducer_profile = (state = initialState, action) => {
     return stateCopy;
 }
 
-export const actionCreatorChangeValue = (texts) => { // пишу что-то в инпуте на вкладке Profile
+export const changeValue = (texts) => { // пишу что-то в инпуте на вкладке Profile
     return { type: UPDATE_INPUT_VALUE, text: texts };
 }
 
-export const actionCreatorAddPost = () => { // нажимаю кнопку Add Post на вкладке Profile
+export const addPost = () => { // нажимаю кнопку Add Post на вкладке Profile
     return { type: ADD_POST };
 }
 
