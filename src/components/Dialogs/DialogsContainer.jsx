@@ -1,20 +1,23 @@
 import Dialogs from './Dialogs';
-import { actionCreatorChangeMessageValue, actionCreatorSendMessage } from '../../redux/reducer_dialogs';
+import { changeMessageValue, sendMessages } from '../../redux/reducer_dialogs';
 import { connect } from 'react-redux';
 
 let mapStateToPropsOne = (state) => {
+    console.log('state_2 ', state);
     return {
-        dialogsState: state.dialogsState
+        // dialogsState: state.messagesState
+        messages: state.messagesState,
+        newMessageText: state.messagesState.inputValue
     }
 }
 
 let mapDispatchToPropsOne = (dispatch) => {
     return {
         changeMessageValue: (texts) => {
-            dispatch(actionCreatorChangeMessageValue(texts));
+            dispatch(changeMessageValue(texts));
         },
         sendMessage: () => {
-            dispatch(actionCreatorSendMessage());
+            dispatch(sendMessages());
         }
     }
 }

@@ -13,7 +13,7 @@ const reducer_dialogs = (state = initialState, action) => {
         let messageText = {
             id: nextPostId,
             name: 'Anna',
-            message: state.inputValue
+            messageText: state.inputValue
         };
         stateCopy.push(messageText);
     } else if (action.type && action.type === UPDATE_MESSAGE_VALUE) {
@@ -22,11 +22,11 @@ const reducer_dialogs = (state = initialState, action) => {
     return stateCopy;
 }
 
-export const actionCreatorChangeMessageValue = (texts) => {
+export const changeMessageValue = (texts) => {
     return { type: UPDATE_MESSAGE_VALUE, text: texts };
 }
 
-export const actionCreatorSendMessage = () => {
+export const sendMessages = () => {
     return { type: SEND_MESSAGE };
 }
 
