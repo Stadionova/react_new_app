@@ -9,13 +9,15 @@ const reducer_dialogs = (state = initialState, action) => {
     let stateCopy = [...state];
     let previousPostId = stateCopy.length;
     let nextPostId = previousPostId + 1;
+    console.log('state.inputValue reducer_dialogs', state.inputValue);
     if (action.type && action.type === SEND_MESSAGE) {
-        let messageText = {
+        let newObj = {
             id: nextPostId,
             name: 'Anna',
-            messageText: state.inputValue
+            message: state.inputValue
         };
-        stateCopy.push(messageText);
+        stateCopy.push(newObj);
+        console.log('stateCopy reducer_dialogs', stateCopy);
     } else if (action.type && action.type === UPDATE_MESSAGE_VALUE) {
         stateCopy.inputValue = action.text;
     }
