@@ -14,6 +14,7 @@ const MyPosts = (props) => {
 
     function onAddPost() {
         props.addPost();
+        newPost.current.value = '';
     }
 
     function changeValue() {

@@ -6,6 +6,7 @@ const Messages = (props) => {
 
     function sendMessage() {
         props.dispatchSendNewMessage();
+        newMessage.current.value = '';
     }
 
     function updateInputValue() {
