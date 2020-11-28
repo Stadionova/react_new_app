@@ -12,14 +12,12 @@ const reducer_profile = (state = initialState, action) => {
     let stateCopy = [...state];
     let previousPostId = stateCopy.length;
     let nextPostId = previousPostId + 1;
-    console.log('state.inputValue reducer_profile', state.inputValue);
     if (action.type && action.type === ADD_POST) {
         let newObj = {
             id: nextPostId,
             message: state.inputValue
         };
         stateCopy.push(newObj);
-        console.log('stateCopy reducer_profile', stateCopy);
     } else if (action.type && action.type === UPDATE_INPUT_VALUE) {
         stateCopy.inputValue = action.text;
     }

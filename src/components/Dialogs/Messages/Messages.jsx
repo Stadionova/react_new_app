@@ -1,19 +1,16 @@
 import React from "react";
 import classes from "./Messages.module.css";
-import { sendMessages, changeMessageValue } from '../../../redux/reducer_dialogs';
 
 const Messages = (props) => {
     const newMessage = React.createRef();
 
     function sendMessage() {
-        let action = sendMessages();
-        props.dispatchSendNewMessage(action);
+        props.dispatchSendNewMessage();
     }
 
-    function updateInputValue(event) {
-        let message = event.target.value;
-        let action = changeMessageValue(message);
-        props.dispatchChangeMessageValue(action);
+    function updateInputValue() {
+        let message = newMessage.current.value;
+        props.dispatchChangeMessageValue(message);
     }
 
     return (
