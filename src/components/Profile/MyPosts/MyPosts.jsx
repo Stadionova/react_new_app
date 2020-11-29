@@ -3,6 +3,7 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
+    console.log('props.posts ', props.posts);
     const postsElements = props.posts.map((post) => {
         return <Post
             postNum={post.id}
