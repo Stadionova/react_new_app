@@ -1,7 +1,7 @@
 .dialogs {
     background-color: tomato;
     height: 100%;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 2fr 10fr;
 }
 
