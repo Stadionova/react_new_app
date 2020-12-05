@@ -30,11 +30,6 @@ const Dialogs = (props) => {
             <div className={classes.dialogsMessages}>
                 {messageElements}
             </div>
-            {/* <div>
-                <div className={classes.messages}>{props.message}</div>
-                <input value={props.message} onChange={updateInputValue} ref={newMessage} type="text" />
-                <button onClick={sendMessage}>Send NEW Message</button>
-            </div> */}
         </div>
     )
 };

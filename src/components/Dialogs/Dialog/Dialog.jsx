@@ -2,11 +2,15 @@ import React from "react";
 import classes from "./Dialog.module.css";
 import { NavLink } from "react-router-dom";
 import ClickedDialog from "./ClickedDialog/ClickedDialog";
+import { Route } from "react-router-dom";
 
 const Dialog = (props) => {
     const dialog = props.message.map((post) => {
-        return <ClickedDialog
-            message={post} />
+        return (
+            <Route path={'/messages/1' + props.id} render={() =>
+                <ClickedDialog message={post} />}
+            />
+        )
     });
 
     function onDialog() {
@@ -16,9 +20,10 @@ const Dialog = (props) => {
 
     return (
         <div>
-            <div onClick={onDialog}><NavLink to={'/messages/1' + props.id} className={classes.itemDialog} activeClassName={classes.activeDialog}>{props.name}</NavLink></div>
+            <div onClick={onDialog}>
+                <NavLink to={'/messages/1' + props.id} className={classes.itemDialog} activeClassName={classes.activeDialog}>{props.name}</NavLink>
+            </div>
             {dialog}
-            {/* <div className={classes.messages}>{props.message}</div> */}
         </div>
     )
 };
