@@ -1,6 +1,6 @@
 .navigation {
     grid-area: n;
-    background-color: cadetblue;
+    background-color: lightpink;
     border-right: 1px solid black;
     border-left: 1px solid black;
     padding-left: 20px;
@@ -13,8 +13,8 @@
 }
 
 .item .activeLink {
-    color: gold;
-    font-weight: 800;
+    color: black;
+    font-weight: 600;
 }
 
 .avatars {
