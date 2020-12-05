@@ -2,12 +2,7 @@ const ADD_POST = 'ADD_POST';
 const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
 const REMOVE_POST = 'REMOVE_POST';
 
-let initialState = [
-    { id: 1, message: ' Hi, how are you doing?' },
-    { id: 2, message: ' Why did you leave me on read?' },
-    { id: 3, message: ' Ok, back off!' },
-    { id: 4, message: ' bye!' }
-];
+let initialState = [];
 
 const reducer_profile = (state = initialState, action) => {
     let stateCopy = [...state];
