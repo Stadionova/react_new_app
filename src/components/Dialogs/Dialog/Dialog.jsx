@@ -13,14 +13,9 @@ const Dialog = (props) => {
         )
     });
 
-    function onDialog() {
-        console.log('clicked on dialog');
-        console.log('props ', props.message);
-    }
-
     return (
         <div>
-            <div onClick={onDialog}>
+            <div>
                 <NavLink to={'/messages/1' + props.id} className={classes.itemDialog} activeClassName={classes.activeDialog}>{props.name}</NavLink>
             </div>
             {dialog}
