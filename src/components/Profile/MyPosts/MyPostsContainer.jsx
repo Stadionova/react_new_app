@@ -1,5 +1,5 @@
 import MyPosts from './MyPosts';
-import { changeValue, addPost } from '../../../redux/reducer_profile';
+import { changeValue, addPost, removePost } from '../../../redux/reducer_profile';
 import { connect } from 'react-redux';
 
 let mapStateToPropsPost = (state) => {
@@ -16,6 +16,9 @@ let mapDispatchToPropsPost = (dispatch) => {
         },
         addPost: () => {
             dispatch(addPost());
+        },
+        removePost: () => {
+            dispatch(removePost());
         }
     }
 }

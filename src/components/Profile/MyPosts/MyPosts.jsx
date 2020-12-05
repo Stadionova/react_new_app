@@ -3,10 +3,11 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    console.log('props.posts ', props.posts);
+    // console.log('props_1 ', props);
     const postsElements = props.posts.map((post) => {
         return <Post
-            postNum={post.id}
+            remove={props.removePost}
+            id={post.id}
             text={post.message}
             key={post.id} />
     });
@@ -32,7 +33,7 @@ const MyPosts = (props) => {
             </div>
             <div>
                 <button onClick={onAddPost}>Add Post</button>
-                <button>Remove Post</button>
+                {/* <button>Remove Post</button> */}
             </div>
             {postsElements}
         </div>
