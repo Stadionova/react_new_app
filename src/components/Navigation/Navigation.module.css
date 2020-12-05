@@ -1,6 +1,11 @@
 .navigation {
     grid-area: n;
     background-color: cadetblue;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .navigation a {

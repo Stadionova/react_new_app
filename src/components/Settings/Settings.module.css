@@ -1,4 +1,6 @@
 .settings {
-    background-color: yellow;
+    background-color: white;
     height: 100%;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }

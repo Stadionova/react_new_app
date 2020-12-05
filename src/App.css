@@ -5,10 +5,8 @@
     grid-template-areas: "h h" "n c";
     width: 1200px;
     margin: 0 auto;
-}
-
-.app-wrapper__mainContent {
-    border: 1px solid red;
-    grid-area: c;
-    background-color: darkgoldenrod;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
