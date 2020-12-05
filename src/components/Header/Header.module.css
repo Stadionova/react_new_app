@@ -1,11 +1,25 @@
 .header {
     grid-area: h;
-    background-color: aqua;
+    background-color: currentColor;
+    opacity: 1;
+    display: flex;
+    padding-left: 10px;
 }
 
 .header img {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
+}
+
+.header div {
+    padding-left: 10px;
+}
+
+.header span {
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-size: 10pt;
 }
 
 .headerSize {
