@@ -13,13 +13,6 @@ const Dialogs = (props) => {
             key={message.id} />
     });
 
-    let messageElements = props.messages.map((message) => {
-        return <Messages
-            dispatchChangeMessageValue={props.changeMessageValue}
-            dispatchSendNewMessage={props.sendMessage}
-            key={message.id} />
-    });
-
     return (
         <div className={classes.dialogs}>
             <div>My messages</div>
@@ -28,7 +21,10 @@ const Dialogs = (props) => {
                 {dialogsElements}
             </div>
             <div className={classes.dialogsMessages}>
-                {messageElements}
+                <Messages
+                    dispatchChangeMessageValue={props.changeMessageValue}
+                    dispatchSendNewMessage={props.sendMessage}
+                    key={props.messages.id} />
             </div>
         </div>
     )
