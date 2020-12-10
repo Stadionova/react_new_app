@@ -3,7 +3,6 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    // console.log('props_1 ', props);
     const postsElements = props.posts.map((post) => {
         return <Post
             remove={props.removePost}
@@ -26,14 +25,14 @@ const MyPosts = (props) => {
 
     return (
         <div className={classes.posts}>
-            <div>My posts</div>
-            <div>Create New Post</div>
-            <div>
-                <input value={props.newPostText} onChange={changeValue} ref={newPost} placeholder='write text here'></input>
-            </div>
-            <div>
-                <button onClick={onAddPost}>Add Post</button>
-                {/* <button>Remove Post</button> */}
+            <div className={classes.title}>My posts</div>
+            <div className={classes.inputAndButton}>
+                <div>
+                    <input value={props.newPostText} onChange={changeValue} ref={newPost} placeholder='write text here'></input>
+                </div>
+                <div>
+                    <button onClick={onAddPost}>Add Post</button>
+                </div>
             </div>
             {postsElements}
         </div>

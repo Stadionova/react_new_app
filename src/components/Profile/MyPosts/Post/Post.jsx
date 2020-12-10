@@ -2,10 +2,8 @@ import React from "react";
 import classes from "./Post.module.css";
 
 const Post = (props) => {
-    // console.log('props ', props);
     function onRemovePost() {
         props.remove();
-        // newPost.current.value = '';
     }
 
     return (
@@ -13,7 +11,7 @@ const Post = (props) => {
             <div>
                 <span className={classes.number}>{props.id}</span>
                 <span className={classes.postText}>{props.text}</span>
-                <button onClick={onRemovePost}>x</button>
+                <button onClick={onRemovePost}>&#215;</button>
             </div>
         </div>
     )

@@ -1,3 +1,32 @@
 .posts {
     padding: 20px 100px;
 }
+
+.title {
+    margin-bottom: 10px;
+}
+
+.posts input{
+    width: 85%;
+}
+
+.inputAndButton {
+    display: flex;
+    width: 100%;
+}
+
+.inputAndButton div {
+    width: 100%;
+}
+
+.inputAndButton :nth-child(1) {
+    width: 100%;
+}
+
+.inputAndButton :nth-child(2) {
+    width: 30%;
+}
+
+.inputAndButton button {
+    width: 15%;
+}
