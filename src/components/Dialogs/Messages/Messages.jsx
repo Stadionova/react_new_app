@@ -15,8 +15,7 @@ const Messages = (props) => {
     }
 
     return (
-        <div>
-            <div className={classes.messages}>{props.message}</div>
+        <div className={classes.inputAndButton}>
             <input value={props.message} onChange={updateInputValue} ref={newMessage} type="text" />
             <button onClick={sendMessage}>Send NEW Message</button>
         </div>

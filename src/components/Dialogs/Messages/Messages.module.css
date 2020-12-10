@@ -16,3 +16,8 @@
 .messages {
     color: green;
 }
+
+.inputAndButton {
+    position: absolute;
+    bottom: 10px;
+}

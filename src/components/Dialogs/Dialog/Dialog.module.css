@@ -1,6 +1,5 @@
 .dialogs {
     background-color: tomato;
-    height: 100%;
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
@@ -15,4 +14,8 @@
 
 .messages {
     color: green;
+}
+
+.container {
+    margin-bottom: 25px;
 }
