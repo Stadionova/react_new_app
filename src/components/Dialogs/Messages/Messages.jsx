@@ -5,8 +5,10 @@ const Messages = (props) => {
     const newMessage = React.createRef();
 
     function sendMessage() {
-        props.dispatchSendNewMessage();
-        newMessage.current.value = '';
+        if (newMessage.current.value.length > 0) {
+            props.dispatchSendNewMessage();
+            newMessage.current.value = '';
+        }
     }
 
     function updateInputValue() {
