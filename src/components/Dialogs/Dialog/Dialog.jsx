@@ -14,8 +14,8 @@ const Dialog = (props) => {
     });
 
     return (
-        <div>
-            <div className={classes.container}>
+        <div className={classes.container}>
+            <div className={classes.newMessage}>
                 <NavLink to={'/messages/1' + props.id} className={classes.itemDialog} activeClassName={classes.activeDialog}>{props.name}</NavLink>
             </div>
             {dialog}

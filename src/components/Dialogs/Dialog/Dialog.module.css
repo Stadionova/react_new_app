@@ -16,6 +16,10 @@
     color: green;
 }
 
-.container {
+.newMessage {
     margin-bottom: 25px;
+}
+
+.container {
+    display: flex;
 }
