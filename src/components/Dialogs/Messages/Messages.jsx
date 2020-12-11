@@ -5,9 +5,13 @@ const Messages = (props) => {
     const newMessage = React.createRef();
 
     function sendMessage() {
-        if (newMessage.current.value.length > 0) {
-            props.dispatchSendNewMessage();
-            newMessage.current.value = '';
+        let message = newMessage.current.value;
+        if (message.length > 0) {
+            let pattern = /^[\s]+$/;
+            if (!pattern.test(message)) {
+                props.dispatchSendNewMessage();
+                newMessage.current.value = '';
+            }
         }
     }
 
