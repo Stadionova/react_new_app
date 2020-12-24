@@ -8,7 +8,7 @@ const Dialog = (props) => {
     const dialog = props.message.map((post) => {
         return (
             <ClickedDialog
-                propsForSendButton={props.newProps}
+                newProps={props.newProps}
                 message={post} />
             // <Route path={'/messages/1' + props.id} render={() => <ClickedDialog
             //     propsForSendButton={props.newProps}
