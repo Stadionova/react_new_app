@@ -15,7 +15,8 @@ const reducer_dialogs = (state = initialState, action) => {
             name: 'Anna',
             messageText: state.inputValue
         };
-        stateCopy.push(newObj);
+        // stateCopy.push(newObj);
+        stateCopy = [...stateCopy, newObj];
     } else if (action.type && action.type === UPDATE_MESSAGE_VALUE) {
         stateCopy.inputValue = action.text;
     }
