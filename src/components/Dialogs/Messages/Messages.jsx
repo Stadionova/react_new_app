@@ -9,7 +9,7 @@ const Messages = (props) => {
         if (message.length > 0) {
             let pattern = /^[\s]+$/;
             if (!pattern.test(message)) {
-                props.dispatchSendNewMessage();
+                props.sendNewMessage();
                 newMessage.current.value = '';
             }
         }
@@ -17,7 +17,7 @@ const Messages = (props) => {
 
     function updateInputValue() {
         let message = newMessage.current.value;
-        props.dispatchChangeMessageValue(message);
+        props.changeValue(message);
     }
 
     return (

@@ -7,8 +7,8 @@ const ClickedDialog = (props) => {
         <div className={classes.post}>
             <span className={classes.number}>{props.message}</span>
             <Messages
-                dispatchChangeMessageValue={props.propsForSendButton.changeMessageValue}
-                dispatchSendNewMessage={props.propsForSendButton.sendMessage}
+                changeValue={props.propsForSendButton.changeMessageValue}
+                sendNewMessage={props.propsForSendButton.sendMessage}
                 key={props.propsForSendButton.messages.id} />
         </div>
     )
