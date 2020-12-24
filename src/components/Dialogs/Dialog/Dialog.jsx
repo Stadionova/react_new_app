@@ -7,9 +7,12 @@ import { Route } from "react-router-dom";
 const Dialog = (props) => {
     const dialog = props.message.map((post) => {
         return (
-            <Route path={'/messages/1' + props.id} render={() => <ClickedDialog
+            <ClickedDialog
                 propsForSendButton={props.newProps}
-                message={post} />} />
+                message={post} />
+            // <Route path={'/messages/1' + props.id} render={() => <ClickedDialog
+            //     propsForSendButton={props.newProps}
+            //     message={post} />} />
         )
     });
 
