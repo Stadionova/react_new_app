@@ -1,14 +1,15 @@
 import React from "react";
 import Users from './Users';
-import { followUserActionCreator, unfollowUserActionCreator, setUsersFromServer } from '../../../redux/reducer_users';
+import { followUserActionCreator, unfollowUserActionCreator, setUsersFromServer } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 
 let mapStateToPropsPost = (state) => {
+    console.log('state_1 ', state);
     // mapStateToPropsPost - функция, принимающая весь стэйт/стор целиком и 
     // возвращает только ту ветку из стора, 
     // с которой мы будем работать, в данном случае ветка reducer_users
     return {
-        users: state.userPage.users
+        users: state.users
     }
 }
 

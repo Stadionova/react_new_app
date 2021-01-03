@@ -7,7 +7,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 import { Route } from "react-router-dom";
 // Route компонента отвечает за путь в адресной строке (в зависмости от активной вкладки в Navbar)
 // и подставляет нужную компоненту вместо этого пути
@@ -29,7 +29,7 @@ const App = (props) => {
         <Route path='/music' render={() => <Music />} />
         <Route path='/settings' render={() => <Settings />} />
         {/* <Route path='/users' render={() => <div>USERS</div>} /> */}
-        <Route path='/users' render={() => <Users />} />
+        <Route path='/users' render={() => <UsersContainer />} />
       </div>
     </div>
   );
