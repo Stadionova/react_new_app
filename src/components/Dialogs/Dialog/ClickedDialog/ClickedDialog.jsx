@@ -9,7 +9,7 @@ const ClickedDialog = (props) => {
             <Messages
                 changeValue={props.newProps.changeMessageValue}
                 sendNewMessage={props.newProps.sendMessage}
-                key={props.newProps.messages.id} />
+                key={props.id} />
         </div>
     )
 };

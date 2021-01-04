@@ -1,14 +1,8 @@
 import React from "react";
 import classes from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
-// import Friends from "../Friends/Friends";
 
-const Navigation = (props) => {
-
-    // let friendsIcons = props.props.props.friends.map((friend) => {
-    //     return <Friends name={friend.name} avatar={friend.avatar} />
-    // });
-
+const Navigation = () => {
     return (
         <nav className={classes.navigation}>
             <div className={classes.item}>
@@ -29,8 +23,8 @@ const Navigation = (props) => {
             <div className={classes.item}>
                 <NavLink to='/friends' activeClassName={classes.activeLink}>Friends</NavLink>
             </div>
-            <div className={classes.avatars}>
-                {/* {friendsIcons} */}
+            <div className={classes.item}>
+                <NavLink to='/users' activeClassName={classes.activeLink}>Users</NavLink>
             </div>
         </nav>
     )
