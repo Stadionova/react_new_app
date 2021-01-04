@@ -4,12 +4,11 @@ import { followUserActionCreator, unfollowUserActionCreator, setUsersFromServer 
 import { connect } from 'react-redux';
 
 let mapStateToPropsPost = (state) => {
-    console.log('state_1 ', state);
     // mapStateToPropsPost - функция, принимающая весь стэйт/стор целиком и 
     // возвращает только ту ветку из стора, 
     // с которой мы будем работать, в данном случае ветка reducer_users
     return {
-        users: state.users
+        users: state.users.users
     }
 }
 

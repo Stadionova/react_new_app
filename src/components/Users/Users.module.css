@@ -1,5 +1,4 @@
 .user {
-    /* background-color: rgb(201, 236, 201); */
     display: flex;
     position: relative;
     width: 70%;
@@ -10,7 +9,6 @@
 }
 
 .countryAndCity {
-    /* background-color: rgb(217, 236, 107); */
     position: absolute;
     right: 10px;
 }

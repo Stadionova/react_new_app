@@ -2,10 +2,12 @@ const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_USERS = 'SET_USERS';
 
-let initialState = [
-    { id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
-    { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }
-];
+let initialState = {
+    users: [
+        { id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
+        { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }
+    ]
+}
 
 const reducer_users = (state = initialState, action) => {
     switch (action.type) {
@@ -14,7 +16,7 @@ const reducer_users = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return { ...u, followed: true } // делаю копию users и меняю свойство followed на тру
+                        return { ...u, followed: false } // делаю копию users и меняю свойство followed на тру
                     }
                     return u;
                 })
@@ -24,7 +26,7 @@ const reducer_users = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return { ...u, followed: false } // делаю копию users и меняю свойство followed на фолс
+                        return { ...u, followed: true } // делаю копию users и меняю свойство followed на фолс
                     }
                     return u;
                 })

@@ -2,13 +2,14 @@ import React from "react";
 import classes from "./Users.module.css";
 
 const Users = (props) => {
-    console.log('props ', props);
     return <div>
         {
             props.users.map(u => { // props.users передаём через функцию mapStateToProps в контейнерной компоненте
                 return (
                     <div key={u.id} className={classes.user}>
-                        <button>{u.followed ? 'FOLLOW' : 'UNFOLLOW'}</button>
+                        {u.followed ?
+                            <button onClick={() => { props.follow(u.id) }}>FOLLOW</button> :
+                            <button onClick={() => { props.unfollow(u.id) }}>UNFOLLOW</button>}
                         <div className={classes.nameAndStatus}>
                             <div><span>{u.name}</span></div>
                             <div><span>{u.status}</span></div>
