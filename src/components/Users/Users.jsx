@@ -24,13 +24,16 @@ const Users = (props) => {
                         {u.followed ?
                             <button onClick={() => { props.follow(u.id) }}>FOLLOW</button> :
                             <button onClick={() => { props.unfollow(u.id) }}>UNFOLLOW</button>}
+                        <div className={classes.photoSmall}>
+                            <div><img>{u.photos.small}</img></div>
+                        </div>
                         <div className={classes.nameAndStatus}>
                             <div><span>{u.name}</span></div>
                             <div><span>{u.status}</span></div>
                         </div>
                         <div className={classes.countryAndCity}>
-                            <div><span>{u.country}</span></div>
-                            <div><span>{u.city}</span></div>
+                            <div><span>{'u.country'}</span></div>
+                            <div><span>{'u.city'}</span></div>
                         </div>
                     </div>
                 )
