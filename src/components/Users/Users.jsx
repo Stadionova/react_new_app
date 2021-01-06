@@ -25,7 +25,9 @@ const Users = (props) => {
                             <button onClick={() => { props.follow(u.id) }}>FOLLOW</button> :
                             <button onClick={() => { props.unfollow(u.id) }}>UNFOLLOW</button>}
                         <div className={classes.photoSmall}>
-                            <div><img>{u.photos.small}</img></div>
+                            <div>
+                                <img src={u.photos.small ? u.photos.small : 'https://dthezntil550i.cloudfront.net/kg/latest/kg1802132010216500004834729/1280_960/557d644f-12f3-49e1-bb66-23c16400540d.png'}>{u.photos.small && u.photos.small}</img>
+                            </div>
                         </div>
                         <div className={classes.nameAndStatus}>
                             <div><span>{u.name}</span></div>
