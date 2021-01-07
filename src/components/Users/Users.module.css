@@ -18,6 +18,11 @@ button {
     margin-right: 20px;
 }
 
+.showUser {
+    background-color: rgb(146, 230, 146);
+    height: 40px;
+}
+
 .photoSmall {
     border: 1px solid black;
     background-color: green;
