@@ -3,21 +3,24 @@ import classes from "./Users.module.css";
 import * as axios from 'axios';
 
 class Users extends React.Component {
-    showMoreUsers = () => {
-        if (this.props.users.length === 0) {
-            // https://social-network.samuraijs.com/docs# (docs for server api)
-            // https://social-network.samuraijs.com/api/1.0 (base server api without endpoint, делать get запрос сюда
-            // дописать в конце ресурс /users)
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-                // console.log('data ', response.data.items);
-                this.props.setUsers(
-                    response.data.items
-                    // [{ id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
-                    // { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }]
-                );
-            });
-        }
+    constructor(props) {
+        super(props);
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            // console.log('data ', response.data.items);
+            this.props.setUsers(
+                response.data.items
+                // [{ id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
+                // { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }]
+            );
+        });
     }
+    // showMoreUsers = () => {
+    //     if (this.props.users.length === 0) {
+    //         // https://social-network.samuraijs.com/docs# (docs for server api)
+    //         // https://social-network.samuraijs.com/api/1.0 (base server api without endpoint, делать get запрос сюда
+    //         // дописать в конце ресурс /users)
+    //     }
+    // }
     render = () => {
         return <div>
             {
@@ -44,9 +47,9 @@ class Users extends React.Component {
                     )
                 })
             }
-            <div>
+            {/* <div>
                 <button className={classes.showUser} onClick={this.showMoreUsers}>SHOW MORE</button>
-            </div>
+            </div> */}
         </div >
     }
 }
