@@ -3,17 +3,6 @@ import classes from "./Users.module.css";
 import * as axios from 'axios';
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            // console.log('data ', response.data.items);
-            this.props.setUsers(
-                response.data.items
-                // [{ id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
-                // { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }]
-            );
-        });
-    }
     // showMoreUsers = () => {
     //     if (this.props.users.length === 0) {
     //         // https://social-network.samuraijs.com/docs# (docs for server api)
@@ -21,6 +10,16 @@ class Users extends React.Component {
     //         // дописать в конце ресурс /users)
     //     }
     // }
+    componentDidMount = () => {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            console.log('data_2 ', response.data.items);
+            this.props.setUsers(
+                response.data.items
+                // [{ id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
+                // { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }]
+            );
+        });
+    }
     render = () => {
         return <div>
             {
