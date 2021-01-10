@@ -32,7 +32,11 @@ class Users extends React.Component {
             <div className={classes.pagination}>
                 {
                     pagesCountArr.map(page => {
-                        return <span className={page == this.props.currentPage && classes.selectedCurrentPage}>{page}</span>;
+                        return <span
+                            onClick={() => { this.props.setCurrentPage(page) }}
+                            className={page == this.props.currentPage && classes.selectedCurrentPage}>
+                            {page}
+                        </span>;
                     })
                 }
             </div>
@@ -41,8 +45,13 @@ class Users extends React.Component {
                     return (
                         <div key={u.id} className={classes.user}>
                             {u.followed ?
-                                <button onClick={() => { this.props.follow(u.id) }}>FOLLOW</button> :
-                                <button onClick={() => { this.props.unfollow(u.id) }}>UNFOLLOW</button>}
+                                <button onClick={() => { this.props.follow(u.id) }}>
+                                    FOLLOW
+                                    </button> :
+                                <button
+                                    onClick={() => { this.props.unfollow(u.id) }}>
+                                    UNFOLLOW
+                                    </button>}
                             <div className={classes.photoSmall}>
                                 <div>
                                     <img src={u.photos.small ? u.photos.small : 'https://dthezntil550i.cloudfront.net/kg/latest/kg1802132010216500004834729/1280_960/557d644f-12f3-49e1-bb66-23c16400540d.png'}>{u.photos.small && u.photos.small}</img>

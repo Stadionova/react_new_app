@@ -1,6 +1,7 @@
 const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
 let initialState = {
     users: [],
@@ -33,6 +34,8 @@ const reducer_users = (state = initialState, action) => {
             }
         case SET_USERS:
             return { ...state, users: [...state.users, ...action.users] }
+        case SET_CURRENT_PAGE:
+            return { ...state, currentPage: action.currentPage }
         default:
             return state;
     }
@@ -48,6 +51,10 @@ export const unfollowUserActionCreator = (userId) => {
 
 export const setUsersFromServer = (users) => {
     return { type: SET_USERS, users };
+}
+
+export const setCurrentPageActionCreator = (currentPage) => {
+    return { type: SET_CURRENT_PAGE, currentPage };
 }
 
 export default reducer_users;

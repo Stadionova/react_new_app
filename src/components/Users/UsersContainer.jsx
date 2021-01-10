@@ -1,6 +1,6 @@
 import React from "react";
 import Users from './Users';
-import { followUserActionCreator, unfollowUserActionCreator, setUsersFromServer } from '../../redux/reducer_users';
+import { followUserActionCreator, unfollowUserActionCreator, setUsersFromServer, setCurrentPageActionCreator } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 
 let mapStateToPropsPost = (state) => {
@@ -31,6 +31,9 @@ let mapDispatchToPropsPost = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch(setUsersFromServer(users));
+        },
+        setCurrentPage: (currentPage) => {
+            dispatch(setCurrentPageActionCreator(currentPage));
         }
     }
 }
