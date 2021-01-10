@@ -8,7 +8,10 @@ let mapStateToPropsPost = (state) => {
     // возвращает только ту ветку из стора, 
     // с которой мы будем работать, в данном случае ветка reducer_users
     return {
-        users: state.users.users
+        users: state.users.users,
+        usersServerCount: state.users.usersServerCount,
+        countUsersOnThePage: state.users.countUsersOnThePage,
+        currentPage: state.users.currentPage
     }
 }
 

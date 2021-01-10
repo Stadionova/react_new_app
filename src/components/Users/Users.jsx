@@ -21,7 +21,19 @@ class Users extends React.Component {
         });
     }
     render = () => {
+        let countOfThePages = this.props.usersServerCount / this.props.countUsersOnThePage;
+        let pagesCountArr = [];
+        for (let i = 1; i <= countOfThePages; i++) {
+            pagesCountArr.push(i);
+        }
         return <div>
+            <div className={classes.pagination}>
+                {
+                    pagesCountArr.map(page => {
+                        return <span className={page == this.props.currentPage && classes.selectedCurrentPage}>{page}</span>;
+                    })
+                }
+            </div>
             {
                 this.props.users.map(u => { // props.users передаём через функцию mapStateToProps в контейнерной компоненте
                     return (
