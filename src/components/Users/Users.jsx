@@ -40,7 +40,7 @@ class Users extends React.Component {
                         return <span
                             onClick={() => { this.clickHandler(page) }}
                             className={page == this.props.currentPage && classes.selectedCurrentPage}>
-                            {page}
+                            {page+' '}
                         </span>;
                     })
                 }
