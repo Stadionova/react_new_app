@@ -11,8 +11,10 @@ class Users extends React.Component {
     //     }
     // }
     componentDidMount = () => {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            console.log('data_2 ', response.data.items);
+        axios.get(
+            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`
+        ).then(response => {
+            console.log('data_2 ', response.data);
             this.props.setUsers(
                 response.data.items
                 // [{ id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
