@@ -22,8 +22,12 @@ class Users extends React.Component {
             );
         });
     }
+    clickHandler = (page) => {
+        this.props.setCurrentPage(page);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`).then(response => { this.props.setUsers(response.data.items); });
+    }
     render = () => {
-        let countOfThePages = this.props.usersServerCount / this.props.countUsersOnThePage;
+        let countOfThePages = Math.ceil(this.props.usersServerCount / this.props.countUsersOnThePage);
         let pagesCountArr = [];
         for (let i = 1; i <= countOfThePages; i++) {
             pagesCountArr.push(i);
@@ -33,7 +37,7 @@ class Users extends React.Component {
                 {
                     pagesCountArr.map(page => {
                         return <span
-                            onClick={() => { this.props.setCurrentPage(page) }}
+                            onClick={() => { this.clickHandler(page) }}
                             className={page == this.props.currentPage && classes.selectedCurrentPage}>
                             {page}
                         </span>;
