@@ -20,6 +20,7 @@ class Users extends React.Component {
                 // [{ id: 1, name: 'Anton', country: 'Russia', city: "Moscow", status: 'sunny day', followed: false },
                 // { id: 2, name: 'Yulia', country: 'England', city: "London", status: 'looooser', followed: true }]
             );
+            this.props.setTotalCountToProps(response.data.totalCount);
         });
     }
     clickHandler = (page) => {

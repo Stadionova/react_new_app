@@ -2,6 +2,7 @@ const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 
 let initialState = {
     users: [],
@@ -36,6 +37,8 @@ const reducer_users = (state = initialState, action) => {
             return { ...state, users: action.users }
         case SET_CURRENT_PAGE:
             return { ...state, currentPage: action.currentPage }
+        case SET_TOTAL_COUNT:
+            return { ...state, usersServerCount: action.usersServerCount }
         default:
             return state;
     }
@@ -55,6 +58,10 @@ export const setUsersFromServer = (users) => {
 
 export const setCurrentPageActionCreator = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage };
+}
+
+export const setTotalCountToPropsActionCreator = (usersServerCount) => {
+    return { type: SET_TOTAL_COUNT, usersServerCount };
 }
 
 export default reducer_users;
