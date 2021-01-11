@@ -1,5 +1,5 @@
 import React from "react";
-import Users from './Users';
+import UsersServerApiContainer from './UsersServerApiContainer';
 import {
     followUserActionCreator, unfollowUserActionCreator,
     setUsersFromServer, setCurrentPageActionCreator,
@@ -45,6 +45,6 @@ let mapDispatchToPropsPost = (dispatch) => {
     }
 }
 
-const UsersContainer = connect(mapStateToPropsPost, mapDispatchToPropsPost)(Users);
+const UsersContainer = connect(mapStateToPropsPost, mapDispatchToPropsPost)(UsersServerApiContainer);
 
 export default UsersContainer;

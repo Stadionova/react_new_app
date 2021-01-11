@@ -8,7 +8,7 @@ let initialState = {
     users: [],
     usersServerCount: 0,
     countUsersOnThePage: 5,
-    currentPage: 3
+    currentPage: 1
 }
 
 const reducer_users = (state = initialState, action) => {
