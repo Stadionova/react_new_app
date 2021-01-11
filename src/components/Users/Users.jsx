@@ -4,15 +4,12 @@ import classes from "./Users.module.css";
 const Users = (props) => {
     return <div>
         <div className={classes.pagination}>
-            {
-                props.pagesCountArr.map(page => {
-                    return <span
-                        onClick={() => { props.clickHandler(page) }}
-                        className={page == props.currentPage && classes.selectedCurrentPage}>
-                        {page + ' '}
-                    </span>;
-                })
-            }
+            {props.pagesCountArr.map(page => {
+                return <span onClick={() => { props.clickHandler(page) }}
+                    className={page == props.currentPage && classes.selectedCurrentPage}>
+                    {page + ' '}
+                </span>;
+            })}
         </div>
         {
             props.users.map(u => { // props.users передаём через функцию mapStateToProps в контейнерной компоненте
