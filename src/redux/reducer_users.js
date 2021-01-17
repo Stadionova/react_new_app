@@ -49,27 +49,27 @@ const reducer_users = (state = initialState, action) => {
     }
 }
 
-export const followUserActionCreator = (userId) => { // actionCreator function which return action
+export const follow = (userId) => { // actionCreator function which return action
     return { type: FOLLOW_USER, userId };
 }
 
-export const unfollowUserActionCreator = (userId) => {
+export const unfollow = (userId) => {
     return { type: UNFOLLOW_USER, userId };
 }
 
-export const setUsersFromServer = (users) => {
+export const setUsers = (users) => {
     return { type: SET_USERS, users };
 }
 
-export const setCurrentPageActionCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage };
 }
 
-export const setTotalCountToPropsActionCreator = (usersServerCount) => {
+export const setTotalCountToProps = (usersServerCount) => {
     return { type: SET_TOTAL_COUNT, usersServerCount };
 }
 
-export const setIsFetchingUsersFromServerActionCreator = (isFetching) => {
+export const setIsFetchingUsersFromServer = (isFetching) => {
     return { type: TOGGLE_ISFETCHING_PRELOADER, isFetching };
 }
 

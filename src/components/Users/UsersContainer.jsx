@@ -1,8 +1,8 @@
 import React from "react";
 import {
-    followUserActionCreator, unfollowUserActionCreator,
-    setUsersFromServer, setCurrentPageActionCreator,
-    setTotalCountToPropsActionCreator, setIsFetchingUsersFromServerActionCreator
+    follow, unfollow,
+    setUsers, setCurrentPage,
+    setTotalCountToProps, setIsFetchingUsersFromServer
 } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 import Users from './Users';
@@ -11,24 +11,24 @@ import * as axios from 'axios';
 
 class UsersServerApiContainer extends React.Component {
     componentDidMount = () => {
-        this.props.setIsFetchingUsersFromServerActionCreator(true);
+        this.props.setIsFetchingUsersFromServer(true);
         axios.get(
             `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`
         ).then(response => {
             console.log('data ', response.data);
             this.props.setUsers(response.data.items);
             this.props.setTotalCountToProps(response.data.totalCount);
-            this.props.setIsFetchingUsersFromServerActionCreator(false);
+            this.props.setIsFetchingUsersFromServer(false);
         });
     }
     clickHandler = (page) => {
-        this.props.setIsFetchingUsersFromServerActionCreator(true);
+        this.props.setIsFetchingUsersFromServer(true);
         this.props.setCurrentPage(page);
         axios.get(
             `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`
         ).then(response => {
             this.props.setUsers(response.data.items);
-            this.props.setIsFetchingUsersFromServerActionCreator(false);
+            this.props.setIsFetchingUsersFromServer(false);
         });
     }
     render = () => {
@@ -62,35 +62,42 @@ let mapStateToPropsPost = (state) => {
     }
 }
 
-let mapDispatchToPropsPost = (dispatch) => {
-    return {
-        follow: (userId) => {
-            // мы вызываем в презентационной компоненте Users колбэк follow
-            // при клике на кнопку follow
-            // данные о том, что был совершён клик передаются в контэйнерную компоненту
-            // и уже только контэйнерная компонента диспатчит экшен в стор
-            dispatch(followUserActionCreator(userId));
-            // диспатчим колбэк (экшен криэйтор, котор возвращ экшен,
-            // так как диспатчить мы можем только экшен)
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowUserActionCreator(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersFromServer(users));
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageActionCreator(currentPage));
-        },
-        setTotalCountToProps: (usersServerCount) => {
-            dispatch(setTotalCountToPropsActionCreator(usersServerCount));
-        },
-        setIsFetchingUsersFromServerActionCreator: (status) => {
-            dispatch(setIsFetchingUsersFromServerActionCreator(status));
-        }
-    }
-}
+// let mapDispatchToPropsPost = (dispatch) => {
+//     return {
+//         follow: (userId) => {
+//             // мы вызываем в презентационной компоненте Users колбэк follow
+//             // при клике на кнопку follow
+//             // данные о том, что был совершён клик передаются в контэйнерную компоненту
+//             // и уже только контэйнерная компонента диспатчит экшен в стор
+//             dispatch(followUserActionCreator(userId));
+//             // диспатчим колбэк (экшен криэйтор, котор возвращ экшен,
+//             // так как диспатчить мы можем только экшен)
+//         },
+//         unfollow: (userId) => {
+//             dispatch(unfollowUserActionCreator(userId));
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersFromServer(users));
+//         },
+//         setCurrentPage: (currentPage) => {
+//             dispatch(setCurrentPageActionCreator(currentPage));
+//         },
+//         setTotalCountToProps: (usersServerCount) => {
+//             dispatch(setTotalCountToPropsActionCreator(usersServerCount));
+//         },
+//         setIsFetchingUsersFromServer: (status) => {
+//             dispatch(setIsFetchingUsersFromServerActionCreator(status));
+//         }
+//     }
+// }
 
-const UsersContainer = connect(mapStateToPropsPost, mapDispatchToPropsPost)(UsersServerApiContainer);
+const UsersContainer = connect(mapStateToPropsPost, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalCountToProps,
+    setIsFetchingUsersFromServer
+})(UsersServerApiContainer);
 
 export default UsersContainer;
