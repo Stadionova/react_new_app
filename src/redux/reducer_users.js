@@ -3,15 +3,18 @@ const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
+const TOGGLE_ISFETCHING_PRELOADER = 'TOGGLE_ISFETCHING_PRELOADER';
 
 let initialState = {
     users: [],
     usersServerCount: 0,
     countUsersOnThePage: 5,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 }
 
 const reducer_users = (state = initialState, action) => {
+    console.log('state ', state);
     switch (action.type) {
         case FOLLOW_USER:
             return { // возвращаю копию стэйта
@@ -39,6 +42,8 @@ const reducer_users = (state = initialState, action) => {
             return { ...state, currentPage: action.currentPage }
         case SET_TOTAL_COUNT:
             return { ...state, usersServerCount: action.usersServerCount }
+        case TOGGLE_ISFETCHING_PRELOADER:
+            return { ...state, isFetching: action.isFetching }
         default:
             return state;
     }
@@ -62,6 +67,10 @@ export const setCurrentPageActionCreator = (currentPage) => {
 
 export const setTotalCountToPropsActionCreator = (usersServerCount) => {
     return { type: SET_TOTAL_COUNT, usersServerCount };
+}
+
+export const setIsFetchingUsersFromServerActionCreator = (isFetching) => {
+    return { type: TOGGLE_ISFETCHING_PRELOADER, isFetching };
 }
 
 export default reducer_users;

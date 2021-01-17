@@ -2,25 +2,34 @@ import React from "react";
 import {
     followUserActionCreator, unfollowUserActionCreator,
     setUsersFromServer, setCurrentPageActionCreator,
-    setTotalCountToPropsActionCreator
+    setTotalCountToPropsActionCreator, setIsFetchingUsersFromServerActionCreator
 } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 import Users from './Users';
+import Preloader from './../../common/Preloader/Preloader';
 import * as axios from 'axios';
 
 class UsersServerApiContainer extends React.Component {
     componentDidMount = () => {
+        this.props.setIsFetchingUsersFromServerActionCreator(true);
         axios.get(
             `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`
         ).then(response => {
             console.log('data ', response.data);
             this.props.setUsers(response.data.items);
             this.props.setTotalCountToProps(response.data.totalCount);
+            this.props.setIsFetchingUsersFromServerActionCreator(false);
         });
     }
     clickHandler = (page) => {
+        this.props.setIsFetchingUsersFromServerActionCreator(true);
         this.props.setCurrentPage(page);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`).then(response => { this.props.setUsers(response.data.items); });
+        axios.get(
+            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`
+        ).then(response => {
+            this.props.setUsers(response.data.items);
+            this.props.setIsFetchingUsersFromServerActionCreator(false);
+        });
     }
     render = () => {
         let countOfThePages = Math.ceil(this.props.usersServerCount / this.props.countUsersOnThePage);
@@ -28,14 +37,15 @@ class UsersServerApiContainer extends React.Component {
         for (let i = 1; i <= countOfThePages; i++) {
             pagesCountArr.push(i);
         }
-        return <Users
-            clickHandler={this.clickHandler}
-            currentPage={this.props.currentPage}
-            users={this.props.users}
-            follow={this.props.follow}
-            unfollow={this.props.unfollow}
-            pagesCountArr={pagesCountArr}
-        />
+        return this.props.isFetching ? <Preloader /> :
+            <Users
+                clickHandler={this.clickHandler}
+                currentPage={this.props.currentPage}
+                users={this.props.users}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                pagesCountArr={pagesCountArr}
+            />
     }
 }
 
@@ -47,7 +57,8 @@ let mapStateToPropsPost = (state) => {
         users: state.users.users,
         usersServerCount: state.users.usersServerCount,
         countUsersOnThePage: state.users.countUsersOnThePage,
-        currentPage: state.users.currentPage
+        currentPage: state.users.currentPage,
+        isFetching: state.users.isFetching
     }
 }
 
@@ -73,6 +84,9 @@ let mapDispatchToPropsPost = (dispatch) => {
         },
         setTotalCountToProps: (usersServerCount) => {
             dispatch(setTotalCountToPropsActionCreator(usersServerCount));
+        },
+        setIsFetchingUsersFromServerActionCreator: (status) => {
+            dispatch(setIsFetchingUsersFromServerActionCreator(status));
         }
     }
 }
