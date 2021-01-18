@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import classes from "./Users.module.css";
 
 const Users = (props) => {
@@ -25,7 +26,9 @@ const Users = (props) => {
                                     </button>}
                         <div className={classes.photoSmall}>
                             <div>
-                                <img src={u.photos.small ? u.photos.small : 'https://dthezntil550i.cloudfront.net/kg/latest/kg1802132010216500004834729/1280_960/557d644f-12f3-49e1-bb66-23c16400540d.png'}>{u.photos.small && u.photos.small}</img>
+                                <NavLink to={'/profile' + u.id}>
+                                    <img src={u.photos.small ? u.photos.small : 'https://dthezntil550i.cloudfront.net/kg/latest/kg1802132010216500004834729/1280_960/557d644f-12f3-49e1-bb66-23c16400540d.png'}>{u.photos.small && u.photos.small}</img>
+                                </NavLink>
                             </div>
                         </div>
                         <div className={classes.nameAndStatus}>
