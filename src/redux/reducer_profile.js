@@ -4,9 +4,13 @@ const REMOVE_POST = 'REMOVE_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
-    posts: [],
+    posts: [
+        { id: 1, message: 'hello', likesCount: 12 },
+        { id: 2, message: 'hi', likesCount: 1 },
+        { id: 3, message: 'how are you?', likesCount: 5 }
+    ],
     newPostText: 'HELLO',
-    profile: 'Yura',
+    profile: null,
     id: null
 }
 

@@ -11,13 +11,13 @@ class ProfileContainer extends React.Component {
         });
     }
     render = () => {
-        return <Profile {...this.props} />
+        return <Profile {...this.props} profile={this.props.profile} />
     }
 }
 
 let mapStateToPropsPost = (state) => {
     return {
-        a: 13
+        profile: state.dialogsState.profile
     }
 }
 
