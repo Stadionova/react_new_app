@@ -14,7 +14,6 @@ let initialState = {
 }
 
 const reducer_users = (state = initialState, action) => {
-    console.log('state ', state);
     switch (action.type) {
         case FOLLOW_USER:
             return { // возвращаю копию стэйта

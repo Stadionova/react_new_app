@@ -3,7 +3,7 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    const postsElements = props.posts.map((post) => {
+    const postsElements = props.posts.posts.map((post) => {
         return <Post
             remove={props.removePost}
             id={post.id}
@@ -14,7 +14,9 @@ const MyPosts = (props) => {
     const newPost = React.createRef();
 
     function onAddPost() {
-        props.addPost();
+        let newId = props.posts.id;
+        props.posts.id = newId + 1;
+        props.addPost(props.posts.id);
         newPost.current.value = '';
     }
 

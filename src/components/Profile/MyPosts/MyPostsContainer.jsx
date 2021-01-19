@@ -17,8 +17,8 @@ let mapDispatchToPropsPost = (dispatch) => {
         addPost: () => {
             dispatch(addPost());
         },
-        removePost: () => {
-            dispatch(removePost());
+        removePost: (id) => {
+            dispatch(removePost(id));
         }
     }
 }

@@ -1,37 +1,60 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
 const REMOVE_POST = 'REMOVE_POST';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
-let initialState = [];
+let initialState = {
+    posts: [],
+    newPostText: 'HELLO',
+    profile: 'Yura',
+    id: null
+}
 
 const reducer_profile = (state = initialState, action) => {
-    let stateCopy = [...state];
-    let previousPostId = stateCopy.length;
-    let nextPostId = previousPostId + 1;
-    if (action.type && action.type === ADD_POST) {
-        let newObj = {
-            id: nextPostId,
-            message: state.inputValue
-        };
-        stateCopy.push(newObj);
-    } else if (action.type && action.type === UPDATE_INPUT_VALUE) {
-        stateCopy.inputValue = action.text;
-    } else if (action.type && action.type === REMOVE_POST) {
-        stateCopy.splice(stateCopy.id, 1);
+    switch (action.type) {
+        case ADD_POST:
+            let newPost = {
+                id: state.id,
+                message: state.newPostText,
+                likesCount: 0
+            }
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostText: ''
+            }
+        case UPDATE_INPUT_VALUE:
+            return { ...state, newPostText: action.text }
+        case REMOVE_POST:
+            return {
+                ...state,
+                users: state.posts.map((u, index) => {
+                    if (u.id == action.id) {
+                        state.posts.splice(index, 1);
+                    }
+                })
+            }
+        case SET_USER_PROFILE:
+            return { ...state, profile: action.profile }
+        default:
+            return state;
     }
-    return stateCopy;
 }
 
 export const changeValue = (texts) => { // пишу что-то в инпуте на вкладке Profile
     return { type: UPDATE_INPUT_VALUE, text: texts };
 }
 
-export const addPost = () => { // нажимаю кнопку Add Post на вкладке Profile
-    return { type: ADD_POST };
+export const addPost = (newId) => { // нажимаю кнопку Add Post на вкладке Profile
+    return { type: ADD_POST, id: newId };
 }
 
-export const removePost = () => { // нажимаю cross x на вкладке Profile
-    return { type: REMOVE_POST };
+export const removePost = (id) => { // нажимаю cross x на вкладке Profile
+    return { type: REMOVE_POST, id: id };
+}
+
+export const setUserProfile = (profile) => {
+    return { type: SET_USER_PROFILE, profile };
 }
 
 export default reducer_profile;
