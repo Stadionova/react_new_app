@@ -28,3 +28,11 @@
 .headerSize {
     font-size: 25pt;
 }
+
+.login {
+    color: white;
+    font-size: 12pt;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
