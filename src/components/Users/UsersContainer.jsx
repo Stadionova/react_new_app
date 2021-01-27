@@ -13,8 +13,9 @@ class UsersServerApiContainer extends React.Component {
     componentDidMount = () => {
         this.props.setIsFetchingUsersFromServer(true);
         axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`
-        ).then(response => {
+            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`, {
+            withCredentials: true
+        }).then(response => {
             console.log('data ', response.data);
             this.props.setUsers(response.data.items);
             this.props.setTotalCountToProps(response.data.totalCount);
@@ -25,8 +26,9 @@ class UsersServerApiContainer extends React.Component {
         this.props.setIsFetchingUsersFromServer(true);
         this.props.setCurrentPage(page);
         axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`
-        ).then(response => {
+            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`, {
+            withCredentials: true
+        }).then(response => {
             this.props.setUsers(response.data.items);
             this.props.setIsFetchingUsersFromServer(false);
         });
