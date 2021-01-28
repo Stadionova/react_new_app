@@ -16,7 +16,6 @@ class UsersServerApiContainer extends React.Component {
             `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`, {
             withCredentials: true
         }).then(response => {
-            console.log('data ', response.data);
             this.props.setUsers(response.data.items);
             this.props.setTotalCountToProps(response.data.totalCount);
             this.props.setIsFetchingUsersFromServer(false);

@@ -20,7 +20,7 @@ const reducer_users = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return { ...u, followed: false } // делаю копию users и меняю свойство followed на тру
+                        return { ...u, followed: true } // делаю копию users и меняю свойство followed на тру
                     }
                     return u;
                 })
@@ -30,7 +30,7 @@ const reducer_users = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return { ...u, followed: true } // делаю копию users и меняю свойство followed на фолс
+                        return { ...u, followed: false } // делаю копию users и меняю свойство followed на фолс
                     }
                     return u;
                 })

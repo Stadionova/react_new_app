@@ -17,20 +17,6 @@ const Users = (props) => {
             return (
                 <div key={u.id} className={classes.user}>
                     {u.followed ?
-                        <button onClick={() => {
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                withCredentials: true,
-                                headers: {
-                                    'API-KEY': '3611a460-0cbe-4609-be7d-da43d8f91c2e'
-                                }
-                            }).then(response => {
-                                if (response.data.resultCode == 0) {
-                                    props.follow(u.id);
-                                }
-                            });
-                        }}>
-                            FOLLOW
-                                    </button> :
                         <button
                             onClick={() => {
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
@@ -45,6 +31,20 @@ const Users = (props) => {
                                 });
                             }}>
                             UNFOLLOW
+                            </button> :
+                        <button onClick={() => {
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                withCredentials: true,
+                                headers: {
+                                    'API-KEY': '3611a460-0cbe-4609-be7d-da43d8f91c2e'
+                                }
+                            }).then(response => {
+                                if (response.data.resultCode == 0) {
+                                    props.follow(u.id);
+                                }
+                            });
+                        }}>
+                            FOLLOW
                                     </button>}
                     <div className={classes.photoSmall}>
                         <div>
