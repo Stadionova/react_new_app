@@ -6,29 +6,23 @@ import {
 } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 import Users from './Users';
+import { usersApi } from './../../api/api';
 import Preloader from './../../common/Preloader/Preloader';
-import * as axios from 'axios';
 
 class UsersServerApiContainer extends React.Component {
     componentDidMount = () => {
         this.props.setIsFetchingUsersFromServer(true);
-        axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${this.props.currentPage}`, {
-            withCredentials: true
-        }).then(response => {
-            this.props.setUsers(response.data.items);
-            this.props.setTotalCountToProps(response.data.totalCount);
+        usersApi.getUsers(this.props.countUsersOnThePage, this.props.currentPage).then(data => {
+            this.props.setUsers(data.items);
+            this.props.setTotalCountToProps(data.totalCount);
             this.props.setIsFetchingUsersFromServer(false);
         });
     }
     clickHandler = (page) => {
         this.props.setIsFetchingUsersFromServer(true);
         this.props.setCurrentPage(page);
-        axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.countUsersOnThePage}&page=${page}`, {
-            withCredentials: true
-        }).then(response => {
-            this.props.setUsers(response.data.items);
+        usersApi.getUsers(this.props.countUsersOnThePage, page).then(data => {
+            this.props.setUsers(data.items);
             this.props.setIsFetchingUsersFromServer(false);
         });
     }
