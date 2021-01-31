@@ -17,15 +17,19 @@ const Users = (props) => {
             return (
                 <div key={u.id} className={classes.user}>
                     {u.followed ?
-                        <button onClick={() => {
+                        <button disabled={props.followId.some(id => id === u.id)} onClick={() => {
+                            props.setIsFollowingProgress(true, u.id);
                             usersApi.unfollow(u.id).then(response => {
-                                (response.data.resultCode == 0) && props.unfollow(u.id);
+                                (response.data.resultCode == 0) && props.unfollow(u.id) &&
+                                    props.setIsFollowingProgress(false, u.id);
                             });
                         }}>UNFOLLOW</button>
                         :
-                        <button onClick={() => {
+                        <button disabled={props.followId.some(id => id === u.id)} onClick={() => {
+                            props.setIsFollowingProgress(true, u.id);
                             usersApi.follow(u.id).then(response => {
-                                (response.data.resultCode == 0) && props.follow(u.id);
+                                (response.data.resultCode == 0) && props.follow(u.id) &&
+                                    props.setIsFollowingProgress(false, u.id);
                             });
                         }}>FOLLOW</button>
                     }

@@ -4,13 +4,16 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const TOGGLE_ISFETCHING_PRELOADER = 'TOGGLE_ISFETCHING_PRELOADER';
+const TOGGLE_ISFOLLOWING_PROGRESS = 'TOGGLE_ISFOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],
     usersServerCount: 0,
     countUsersOnThePage: 5,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    isFollowing: false,
+    followId: []
 }
 
 const reducer_users = (state = initialState, action) => {
@@ -43,6 +46,12 @@ const reducer_users = (state = initialState, action) => {
             return { ...state, usersServerCount: action.usersServerCount }
         case TOGGLE_ISFETCHING_PRELOADER:
             return { ...state, isFetching: action.isFetching }
+        case TOGGLE_ISFOLLOWING_PROGRESS:
+            return {
+                ...state, followId: action.isFollowing
+                    ? [...state.followId, action.userId]
+                    : state.followId.filter(id => id != action.userId)
+            }
         default:
             return state;
     }
@@ -70,6 +79,10 @@ export const setTotalCountToProps = (usersServerCount) => {
 
 export const setIsFetchingUsersFromServer = (isFetching) => {
     return { type: TOGGLE_ISFETCHING_PRELOADER, isFetching };
+}
+
+export const setIsFollowingProgress = (isFollowing, userId) => {
+    return { type: TOGGLE_ISFOLLOWING_PROGRESS, isFollowing, userId };
 }
 
 export default reducer_users;

@@ -2,7 +2,8 @@ import React from "react";
 import {
     follow, unfollow,
     setUsers, setCurrentPage,
-    setTotalCountToProps, setIsFetchingUsersFromServer
+    setTotalCountToProps, setIsFetchingUsersFromServer,
+    setIsFollowingProgress
 } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 import Users from './Users';
@@ -40,6 +41,9 @@ class UsersServerApiContainer extends React.Component {
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
                 pagesCountArr={pagesCountArr}
+                followId={this.props.followId}
+                isFollowing={this.props.isFollowing}
+                setIsFollowingProgress={this.props.setIsFollowingProgress}
             />
     }
 }
@@ -53,7 +57,9 @@ let mapStateToPropsPost = (state) => {
         usersServerCount: state.users.usersServerCount,
         countUsersOnThePage: state.users.countUsersOnThePage,
         currentPage: state.users.currentPage,
-        isFetching: state.users.isFetching
+        isFetching: state.users.isFetching,
+        isFollowing: state.users.isFollowing,
+        followId: state.users.followId
     }
 }
 
@@ -92,7 +98,8 @@ const UsersContainer = connect(mapStateToPropsPost, {
     setUsers,
     setCurrentPage,
     setTotalCountToProps,
-    setIsFetchingUsersFromServer
+    setIsFetchingUsersFromServer,
+    setIsFollowingProgress
 })(UsersServerApiContainer);
 
 export default UsersContainer;
