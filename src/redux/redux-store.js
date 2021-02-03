@@ -1,9 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reducer_profile from './reducer_profile';
 import reducer_dialogs from './reducer_dialogs';
 import reducer_friends from './reducer_friends';
 import reducer_users from './reducer_users';
 import reducer_auth from './reducer_auth';
+import thunkMiddleware from 'redux-thunk';
 
 let reducers = combineReducers({
     dialogsState: reducer_profile,
@@ -13,7 +14,7 @@ let reducers = combineReducers({
     auth: reducer_auth
 });
 
-let store = createStore(reducers); // создаю стор с помощью функции createStore
+let store = createStore(reducers, applyMiddleware(thunkMiddleware)); // создаю стор с помощью функции createStore
 
 window.store = store;
 

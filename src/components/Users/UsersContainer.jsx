@@ -3,7 +3,8 @@ import {
     follow, unfollow,
     setUsers, setCurrentPage,
     setTotalCountToProps, setIsFetchingUsersFromServer,
-    setIsFollowingProgress
+    setIsFollowingProgress,
+    getUsersThunkCreator
 } from '../../redux/reducer_users';
 import { connect } from 'react-redux';
 import Users from './Users';
@@ -12,12 +13,7 @@ import Preloader from './../../common/Preloader/Preloader';
 
 class UsersServerApiContainer extends React.Component {
     componentDidMount = () => {
-        this.props.setIsFetchingUsersFromServer(true);
-        usersApi.getUsers(this.props.countUsersOnThePage, this.props.currentPage).then(data => {
-            this.props.setUsers(data.items);
-            this.props.setTotalCountToProps(data.totalCount);
-            this.props.setIsFetchingUsersFromServer(false);
-        });
+        this.props.getUsersThunkCreator(this.props.countUsersOnThePage, this.props.currentPage);
     }
     clickHandler = (page) => {
         this.props.setIsFetchingUsersFromServer(true);
@@ -44,6 +40,7 @@ class UsersServerApiContainer extends React.Component {
                 followId={this.props.followId}
                 isFollowing={this.props.isFollowing}
                 setIsFollowingProgress={this.props.setIsFollowingProgress}
+                getUsersThunkCreator={this.props.getUsersThunkCreator}
             />
     }
 }
@@ -99,7 +96,8 @@ const UsersContainer = connect(mapStateToPropsPost, {
     setCurrentPage,
     setTotalCountToProps,
     setIsFetchingUsersFromServer,
-    setIsFollowingProgress
+    setIsFollowingProgress,
+    getUsersThunkCreator
 })(UsersServerApiContainer);
 
 export default UsersContainer;

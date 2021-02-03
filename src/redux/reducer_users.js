@@ -1,3 +1,5 @@
+import { usersApi } from '../api/api';
+
 const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_USERS = 'SET_USERS';
@@ -83,6 +85,17 @@ export const setIsFetchingUsersFromServer = (isFetching) => {
 
 export const setIsFollowingProgress = (isFollowing, userId) => {
     return { type: TOGGLE_ISFOLLOWING_PROGRESS, isFollowing, userId };
+}
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(setIsFetchingUsersFromServer(true));
+        usersApi.getUsers(currentPage, pageSize).then(data => {
+            dispatch(setUsers(data.items));
+            dispatch(setTotalCountToProps(data.totalCount));
+            dispatch(setIsFetchingUsersFromServer(false));
+        });
+    }
 }
 
 export default reducer_users;
