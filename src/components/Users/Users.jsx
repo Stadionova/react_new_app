@@ -18,19 +18,11 @@ const Users = (props) => {
                 <div key={u.id} className={classes.user}>
                     {u.followed ?
                         <button disabled={props.followId.some(id => id === u.id)} onClick={() => {
-                            props.setIsFollowingProgress(true, u.id);
-                            usersApi.unfollow(u.id).then(response => {
-                                (response.data.resultCode == 0) && props.unfollow(u.id) &&
-                                    props.setIsFollowingProgress(false, u.id);
-                            });
+                            props.unfollowThunk(u.id);
                         }}>UNFOLLOW</button>
                         :
                         <button disabled={props.followId.some(id => id === u.id)} onClick={() => {
-                            props.setIsFollowingProgress(true, u.id);
-                            usersApi.follow(u.id).then(response => {
-                                (response.data.resultCode == 0) && props.follow(u.id) &&
-                                    props.setIsFollowingProgress(false, u.id);
-                            });
+                            props.followThunk(u.id);
                         }}>FOLLOW</button>
                     }
                     <div className={classes.photoSmall}>
