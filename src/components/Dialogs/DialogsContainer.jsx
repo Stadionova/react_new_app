@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 let mapStateToPropsOne = (state) => {
     return {
         messages: state.messagesState,
-        newMessageText: state.messagesState.inputValue
+        newMessageText: state.messagesState.inputValue,
+        isAuth: state.auth.isAuth
     }
 }
 

@@ -22,7 +22,8 @@ class ProfileContainer extends React.Component {
 
 let mapStateToPropsPost = (state) => {
     return {
-        profile: state.dialogsState.profile
+        profile: state.dialogsState.profile,
+        isAuth: state.auth.isAuth
     }
 }
 
