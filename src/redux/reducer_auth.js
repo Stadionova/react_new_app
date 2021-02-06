@@ -1,4 +1,4 @@
-import { act } from "@testing-library/react";
+import { usersApi } from '../api/api';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -23,5 +23,16 @@ const reducer_auth = (state = initialState, action) => {
 }
 
 export const setUserAuthDataFromServer = (id, email, login) => { return { type: SET_USER_DATA, data: { id, email, login } }; }
+
+export const authThunk = () => {
+    return (dispatch) => {
+        usersApi.login().then(response => {
+            if (response.data.resultCode == 0) {
+                let { id, email, login } = response.data.data;
+                dispatch(setUserAuthDataFromServer(id, email, login));
+            }
+        });
+    }
+}
 
 export default reducer_auth;

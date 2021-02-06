@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Users.module.css";
-import { usersApi } from './../../api/api';
 
 const Users = (props) => {
     return <div>

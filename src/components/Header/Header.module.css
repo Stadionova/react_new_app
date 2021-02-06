@@ -18,6 +18,10 @@
     padding-left: 10px;
 }
 
+.header div a {
+    color: white;
+}
+
 .header span {
     width: 60px;
     height: 60px;
