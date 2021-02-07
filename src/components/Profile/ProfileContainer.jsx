@@ -21,15 +21,21 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let mapStateToPropsPost = (state) => {
+let mapStateToPropsPostRedirect = (state) => {
     return {
-        profile: state.dialogsState.profile,
         isAuth: state.auth.isAuth
     }
 }
 
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+AuthRedirectComponent = connect(mapStateToPropsPostRedirect)(AuthRedirectComponent);
 
 let WithUrlContainerComponent = withRouter(AuthRedirectComponent);
+
+let mapStateToPropsPost = (state) => {
+    return {
+        profile: state.dialogsState.profile
+    }
+}
 
 export default connect(mapStateToPropsPost, { setUserProfile })(WithUrlContainerComponent);
