@@ -6,6 +6,12 @@ import Profile from './Profile';
 import withAuthRedirect from './../../hoc/withAuthRedirect';
 import { usersApi } from './../../api/api';
 
+let mapStateToPropsPost = (state) => {
+    return {
+        profile: state.dialogsState.profile
+    }
+}
+
 class ProfileContainer extends React.Component {
     componentDidMount = () => {
         let userId = this.props.match.params.userId;
@@ -21,21 +27,8 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let mapStateToPropsPostRedirect = (state) => {
-    return {
-        isAuth: state.auth.isAuth
-    }
-}
-
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
-AuthRedirectComponent = connect(mapStateToPropsPostRedirect)(AuthRedirectComponent);
 
 let WithUrlContainerComponent = withRouter(AuthRedirectComponent);
-
-let mapStateToPropsPost = (state) => {
-    return {
-        profile: state.dialogsState.profile
-    }
-}
 
 export default connect(mapStateToPropsPost, { setUserProfile })(WithUrlContainerComponent);
