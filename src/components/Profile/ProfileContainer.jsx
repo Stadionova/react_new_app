@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import Profile from './Profile';
 import withAuthRedirect from './../../hoc/withAuthRedirect';
 import { usersApi } from './../../api/api';
+import { compose } from "redux";
 
 let mapStateToPropsPost = (state) => {
     return {
@@ -27,8 +28,14 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+// вот так
+export default compose(
+    connect(mapStateToPropsPost, { setUserProfile }),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer);
 
-let WithUrlContainerComponent = withRouter(AuthRedirectComponent);
-
-export default connect(mapStateToPropsPost, { setUserProfile })(WithUrlContainerComponent);
+// вместо
+// let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+// let WithUrlContainerComponent = withRouter(AuthRedirectComponent);
+// export default connect(mapStateToPropsPost, { setUserProfile })(WithUrlContainerComponent);
