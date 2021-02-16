@@ -1,13 +1,29 @@
 import React from "react";
-import classes from "./ProfileStatus.module.css";
 
-const ProfileStatus = (props) => {
-    return (
-        <div>
-            <div><span></span></div>
-            <div><input type="text" />type your status</div>
-        </div>
-    )
+class ProfileStatus extends React.Component {
+    state = {
+        statusTitle: 'type your status',
+        currentStatus: 'Hy everybody!',
+        editMode: false
+    }
+    activateMode() {
+        this.setState({
+            editMode: true
+        });
+    }
+    deActivateMode() {
+        this.setState({
+            editMode: false
+        });
+    }
+    render() {
+        return (
+            <div>
+                <div><span onClick={this.activateMode.bind(this)}>{this.state.currentStatus}</span></div>
+                <div><input onBlur={this.deActivateMode.bind(this)} type="text" placeholder={this.state.statusTitle} /></div>
+            </div>
+        )
+    }
 };
 
 export default ProfileStatus;
